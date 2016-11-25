@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/src/main/AndroidManifest.xml:2:1-28:12
+ADDED from /Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/src/main/AndroidManifest.xml:2:1-30:12
 	xmlns:android
 		ADDED from /Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/src/main/AndroidManifest.xml:2:11-69
 	package
@@ -23,7 +23,7 @@ ADDED from /Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/src/main/AndroidMan
 	android:name
 		ADDED from /Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/src/main/AndroidManifest.xml:6:22-76
 application
-ADDED from /Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/src/main/AndroidManifest.xml:7:5-26:19
+ADDED from /Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/src/main/AndroidManifest.xml:7:5-28:19
 MERGED from [com.android.support:appcompat-v7:23.2.1] /Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-v4:24.0.0] /Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:animated-vector-drawable:23.2.1] /Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.2.1/AndroidManifest.xml:7:5-20
@@ -112,7 +112,7 @@ ADDED from /Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/src/main/AndroidMan
 	android:value
 		ADDED from /Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/src/main/AndroidManifest.xml:22:13-68
 meta-data#com.google.android.gms.version
-ADDED from /Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/src/main/AndroidManifest.xml:23:9-25:69
+ADDED from /Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/src/main/AndroidManifest.xml:25:9-27:69
 MERGED from [com.google.android.gms:play-services-basement:9.8.0] /Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.8.0/AndroidManifest.xml:20:9-121
 MERGED from [com.google.android.gms:play-services-basement:9.8.0] /Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.8.0/AndroidManifest.xml:20:9-121
 MERGED from [com.google.android.gms:play-services-basement:9.8.0] /Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.8.0/AndroidManifest.xml:20:9-121
@@ -126,9 +126,9 @@ MERGED from [com.google.android.gms:play-services-basement:9.8.0] /Users/Gerson/
 MERGED from [com.google.android.gms:play-services-basement:9.8.0] /Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.8.0/AndroidManifest.xml:20:9-121
 MERGED from [com.google.android.gms:play-services-basement:9.8.0] /Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.8.0/AndroidManifest.xml:20:9-121
 	android:name
-		ADDED from /Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/src/main/AndroidManifest.xml:24:13-58
+		ADDED from /Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/src/main/AndroidManifest.xml:26:13-58
 	android:value
-		ADDED from /Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/src/main/AndroidManifest.xml:25:13-66
+		ADDED from /Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/src/main/AndroidManifest.xml:27:13-66
 uses-sdk
 INJECTED from /Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:multidex:1.0.1] /Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/build/intermediates/exploded-aar/com.android.support/multidex/1.0.1/AndroidManifest.xml:18:5-42
