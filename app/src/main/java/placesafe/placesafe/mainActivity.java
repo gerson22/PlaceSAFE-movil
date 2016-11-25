@@ -37,14 +37,11 @@ public class mainActivity extends Activity {
 
         getPlaces = (TextView) findViewById(R.id.placePick);
         final Activity act = this;
-<<<<<<< HEAD
         try {
             pruebaGETVolley();
         } catch (JSONException e) {
             e.printStackTrace();
         }
-=======
->>>>>>> dc2d8262ce9d59ed028e9cc5bec8a371aead8707
         getPlaces.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,7 +57,6 @@ public class mainActivity extends Activity {
                 }
             }
         });
-<<<<<<< HEAD
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
