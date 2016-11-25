@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+<<<<<<< HEAD
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -24,6 +25,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+=======
+
+
+>>>>>>> dc2d8262ce9d59ed028e9cc5bec8a371aead8707
 public class mainActivity extends Activity {
 
     int PLACE_PICKER_REQUEST = 1;
@@ -37,11 +42,14 @@ public class mainActivity extends Activity {
 
         getPlaces = (TextView) findViewById(R.id.placePick);
         final Activity act = this;
+<<<<<<< HEAD
         try {
             pruebaGETVolley();
         } catch (JSONException e) {
             e.printStackTrace();
         }
+=======
+>>>>>>> dc2d8262ce9d59ed028e9cc5bec8a371aead8707
         getPlaces.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,6 +65,7 @@ public class mainActivity extends Activity {
                 }
             }
         });
+<<<<<<< HEAD
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -116,5 +125,28 @@ public class mainActivity extends Activity {
 
     }
 
+=======
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == PLACE_PICKER_REQUEST) {
+            if (resultCode == RESULT_OK) {
+                Place place = PlacePicker.getPlace(this,data);
+                String address = String.format("Place: %s", place.getAddress());
+                getPlaces.setText(address);
+            }
+        }
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+>>>>>>> dc2d8262ce9d59ed028e9cc5bec8a371aead8707
 
 }
