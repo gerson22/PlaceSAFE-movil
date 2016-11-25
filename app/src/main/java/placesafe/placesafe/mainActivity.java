@@ -15,7 +15,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-<<<<<<< HEAD
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -25,10 +24,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-=======
-
-
->>>>>>> dc2d8262ce9d59ed028e9cc5bec8a371aead8707
 public class mainActivity extends Activity {
 
     int PLACE_PICKER_REQUEST = 1;
