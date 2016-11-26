@@ -13,7 +13,7 @@
 -printconfiguration 'C:\xampp\htdocs\Escuela\PlaceSAFE-movil\app\build\intermediates\multi-dex\debug\components.flags'
 
 
--keep class placesafe.placesafe.welcome {
+-keep class placesafe.placesafe.mainActivity {
     <init>();
 }
 

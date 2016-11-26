@@ -1,4 +1,4 @@
--keep class placesafe.placesafe.welcome { <init>(); }
+-keep class placesafe.placesafe.mainActivity { <init>(); }
 -keep class placesafe.placesafe.welcome { <init>(); }
 -keep class placesafe.placesafe.registro { <init>(); }
 -keep class com.google.android.gms.common.api.GoogleApiActivity { <init>(); }

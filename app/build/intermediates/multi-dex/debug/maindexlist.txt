@@ -24,6 +24,7 @@ android/support/design/widget/AnimationUtils.class
 android/support/v7/widget/RecyclerView$AdapterDataObservable.class
 com/google/android/gms/common/util/DynamiteApi.class
 android/support/v4/widget/DrawerLayout.class
+com/google/android/gms/location/places/Place.class
 android/support/design/widget/Snackbar$Callback.class
 android/support/annotation/Dimension.class
 android/support/v7/widget/RecyclerView$ItemAnimator.class
@@ -69,6 +70,7 @@ com/bumptech/glide/load/model/GenericLoaderFactory.class
 com/google/android/gms/location/places/NearbyAlertRequest.class
 android/support/v7/app/ActionBar$OnNavigationListener.class
 android/support/v4/view/accessibility/AccessibilityNodeProviderCompat.class
+placesafe/placesafe/RequestVolley.class
 com/bumptech/glide/load/DecodeFormat.class
 android/support/v7/appcompat/R.class
 android/support/v7/app/ActionBar$TabListener.class
@@ -107,11 +109,13 @@ android/support/annotation/BinderThread.class
 com/google/android/gms/location/places/PlaceRequest.class
 android/support/v7/recyclerview/R.class
 com/google/firebase/appindexing/Action.class
+placesafe/placesafe/mainActivity.class
 android/support/v4/media/MediaMetadataCompat$RatingKey.class
 android/support/design/R$dimen.class
 android/support/design/widget/CoordinatorLayout.class
 android/support/v4/view/ViewPager$SavedState.class
 android/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi21.class
+com/android/volley/Response$Listener.class
 android/support/v7/widget/RecyclerView$RecycledViewPool.class
 com/bumptech/glide/GlideBuilder.class
 android/support/v4/view/ViewPager$ItemInfo.class
@@ -129,6 +133,7 @@ android/support/v4/widget/ScrollerCompat.class
 android/support/v4/view/ViewCompat$HCViewCompatImpl.class
 android/support/annotation/StringRes.class
 android/support/v7/widget/ChildHelper.class
+com/google/android/gms/location/places/ui/zza.class
 placesafe/placesafe/R.class
 android/support/v4/media/VolumeProviderCompat$ControlType.class
 android/support/v4/view/ViewPropertyAnimatorListenerAdapter.class
@@ -157,6 +162,7 @@ android/support/multidex/MultiDexApplication.class
 android/support/v7/widget/RecyclerView$4.class
 com/bumptech/glide/load/model/stream/StreamByteArrayLoader.class
 android/support/design/widget/Snackbar$4.class
+com/android/volley/Response.class
 com/google/android/gms/R$styleable.class
 com/google/android/gms/common/GooglePlayServicesUtil.class
 android/support/v7/widget/LinearLayoutCompat$DividerMode.class
@@ -198,6 +204,7 @@ com/google/android/gms/internal/zzqo$zza.class
 android/support/v7/widget/RecyclerView$5.class
 android/support/design/widget/ViewOffsetHelper.class
 android/support/design/widget/CoordinatorLayout$SavedState.class
+com/google/android/gms/common/data/Freezable.class
 android/support/v7/widget/ActionMenuView$LayoutParams.class
 android/support/v7/widget/RecyclerView$SimpleOnItemTouchListener.class
 android/support/v4/media/MediaDescriptionCompat.class
@@ -462,6 +469,7 @@ android/support/design/widget/Snackbar$SnackbarLayout$OnAttachStateChangeListene
 com/google/android/gms/common/internal/zzaa.class
 android/support/v4/view/VelocityTrackerCompat.class
 android/support/v4/media/VolumeProviderCompat$1.class
+placesafe/placesafe/mainActivity$2.class
 com/google/gson/annotations/Expose.class
 android/support/v4/media/MediaBrowserCompat$MediaBrowserImplApi24.class
 android/support/design/widget/SnackbarManager$Callback.class
@@ -474,6 +482,7 @@ android/support/v4/util/Pools.class
 android/support/design/widget/ViewGroupUtils.class
 android/support/design/widget/BottomSheetBehavior$BottomSheetCallback.class
 android/support/v4/view/ViewCompatEclairMr1.class
+placesafe/placesafe/mainActivity$1.class
 android/support/design/widget/TabLayout$1.class
 android/support/v4/media/MediaBrowserCompat$ItemReceiver.class
 android/support/v4/view/MotionEventCompat.class
