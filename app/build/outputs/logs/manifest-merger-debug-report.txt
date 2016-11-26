@@ -19,15 +19,15 @@ MERGED from [com.google.android.gms:play-services-maps:9.8.0] C:\xampp\htdocs\Es
 	android:name
 		ADDED from C:\xampp\htdocs\Escuela\PlaceSAFE-movil\app\src\main\AndroidManifest.xml:5:22-64
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from C:\xampp\htdocs\Escuela\PlaceSAFE-movil\app\src\main\AndroidManifest.xml:6:5-79
+ADDED from C:\xampp\htdocs\Escuela\PlaceSAFE-movil\app\src\main\AndroidManifest.xml:6:5-78
 	android:name
 		ADDED from C:\xampp\htdocs\Escuela\PlaceSAFE-movil\app\src\main\AndroidManifest.xml:6:22-76
-uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from C:\xampp\htdocs\Escuela\PlaceSAFE-movil\app\src\main\AndroidManifest.xml:7:5-81
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from C:\xampp\htdocs\Escuela\PlaceSAFE-movil\app\src\main\AndroidManifest.xml:7:5-80
 	android:name
 		ADDED from C:\xampp\htdocs\Escuela\PlaceSAFE-movil\app\src\main\AndroidManifest.xml:7:22-78
-uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from C:\xampp\htdocs\Escuela\PlaceSAFE-movil\app\src\main\AndroidManifest.xml:8:5-80
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\xampp\htdocs\Escuela\PlaceSAFE-movil\app\src\main\AndroidManifest.xml:8:5-81
 	android:name
 		ADDED from C:\xampp\htdocs\Escuela\PlaceSAFE-movil\app\src\main\AndroidManifest.xml:8:22-78
 uses-feature#0x00020000
