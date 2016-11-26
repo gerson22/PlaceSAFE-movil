@@ -2,6 +2,7 @@ package placesafe.placesafe;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -17,12 +18,19 @@ public class welcome extends Activity {
         setContentView(R.layout.activity_welcome);
         btn = (Button)findViewById(R.id.btnNext);
         usuarioSqlLiteHelper usdbh = usuarioSqlLiteHelper.getInstance(this, "DBUsuarios", null, 1);
+        final SQLiteDatabase db = usdbh.getWritableDatabase();
         if(btn!=null){
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    final Intent miintent = new Intent(getApplicationContext(),registro.class);
-                    startActivity(miintent);
+                    Cursor micursor =  db.rawQuery("select * from usuarios",null);
+                    if(micursor.moveToNext()){
+                        final Intent miintent = new Intent(getApplicationContext(),mainActivity.class);
+                        startActivity(miintent);
+                    }else {
+                        final Intent miintent = new Intent(getApplicationContext(), registro.class);
+                        startActivity(miintent);
+                    }
                 }
             });
         }

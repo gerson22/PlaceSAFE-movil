@@ -2,6 +2,8 @@ package placesafe.placesafe;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,14 +23,21 @@ public class registro extends Activity {
         txtNumero   =  (EditText)findViewById(R.id.numero);
         txtNickName =  (EditText)findViewById(R.id.nickname);
         btnOk       =  (Button)findViewById(R.id.btnOk);
+        usuarioSqlLiteHelper dbh = usuarioSqlLiteHelper.getInstance(this, "DBUsuarios", null, 1);
+        final SQLiteDatabase databse = dbh.getWritableDatabase();
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String numero   =txtNumero.getText().toString();
                 String nickname =txtNickName.getText().toString();
-                Toast.makeText(getApplicationContext(),"Este vato se quiere registrar, su numero es: "+numero+" y si nickname es: "+nickname, Toast.LENGTH_SHORT).show();
+                String sqlCreate = "Create table usuarios(id integer primary key AUTOINCREMENT,telefono integer unique not null,nombre text not null);";
+                //databse.execSQL("drop table if exists");
+                //databse.execSQL(sqlCreate);
+                databse.execSQL("INSERT INTO usuarios values(null,'"+numero+"','"+nickname+"')");
+
+
             }
         });
-       // Intent
+
     }
 }

@@ -1,10 +1,18 @@
 [
     {
-        "merged": "/Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
-        "source": "/Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
+        "merged": "C:\\Users\\Gerson\\AndroidStudioProjects\\PlaceSAFE\\app\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
+        "source": "C:\\Users\\Gerson\\AndroidStudioProjects\\PlaceSAFE\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
     },
     {
-        "merged": "/Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
-        "source": "/Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
+        "merged": "C:\\Users\\roger\\Documents\\PlaceSAFE-movil\\app\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
+        "source": "C:\\Users\\roger\\Documents\\PlaceSAFE-movil\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\roger\\Documents\\PlaceSAFE-movil\\app\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
+        "source": "C:\\Users\\roger\\Documents\\PlaceSAFE-movil\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\Gerson\\AndroidStudioProjects\\PlaceSAFE\\app\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
+        "source": "C:\\Users\\Gerson\\AndroidStudioProjects\\PlaceSAFE\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
     }
 ]

@@ -1,6 +1,10 @@
 [
     {
-        "merged": "/Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/build/intermediates/res/merged/debug/mipmap-mdpi-v4/ic_launcher.png",
-        "source": "/Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+        "merged": "C:\\Users\\Gerson\\AndroidStudioProjects\\PlaceSAFE\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\ic_launcher.png",
+        "source": "C:\\Users\\Gerson\\AndroidStudioProjects\\PlaceSAFE\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\roger\\Documents\\PlaceSAFE-movil\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\ic_launcher.png",
+        "source": "C:\\Users\\roger\\Documents\\PlaceSAFE-movil\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     }
 ]

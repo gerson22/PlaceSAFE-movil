@@ -1,7 +1,7 @@
--injars /Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/build/intermediates/transforms/jarMerging/debug/jars/1/1f/combined.jar
--outjars /Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/build/intermediates/multi-dex/debug/componentClasses.jar
+-injars 'C:\Users\roger\Documents\PlaceSAFE-movil\app\build\intermediates\transforms\jarMerging\debug\jars\1\1f\combined.jar'
+-outjars 'C:\Users\roger\Documents\PlaceSAFE-movil\app\build\intermediates\multi-dex\debug\componentClasses.jar'
 
--libraryjars /Users/Gerson/Library/Android/sdk/build-tools/23.0.3/lib/shrinkedAndroid.jar
+-libraryjars 'C:\Users\roger\AppData\Local\Android\sdk\build-tools\23.0.3\lib\shrinkedAndroid.jar'
 
 -forceprocessing
 -dontoptimize
@@ -9,10 +9,18 @@
 -dontusemixedcaseclassnames
 -dontpreverify
 -dontwarn
--printconfiguration /Users/Gerson/AndroidStudioProjects/PlaceSAFE/app/build/intermediates/multi-dex/debug/components.flags
+-printconfiguration 'C:\Users\roger\Documents\PlaceSAFE-movil\app\build\intermediates\multi-dex\debug\components.flags'
 
 
--keep class placesafe.placesafe.mainActivity {
+-keep class placesafe.placesafe.welcome {
+    <init>();
+}
+
+-keep class placesafe.placesafe.welcome {
+    <init>();
+}
+
+-keep class placesafe.placesafe.registro {
     <init>();
 }
 
