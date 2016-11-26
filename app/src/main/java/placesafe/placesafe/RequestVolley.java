@@ -51,7 +51,6 @@ public class RequestVolley {
     }
 
     public void requestString(String method,String path, Response.Listener<String> listener){
-        Toast.makeText(context,method + " - "+ path,Toast.LENGTH_LONG).show();
         StringRequest stringRequest = new StringRequest(methods.get(method),URI + path ,
                 listener,
                 new Response.ErrorListener() {
