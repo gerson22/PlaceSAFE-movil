@@ -123,6 +123,7 @@ android/support/annotation/MainThread.class
 android/support/v4/os/UserManagerCompat.class
 android/support/design/widget/AppBarLayout$1.class
 android/support/annotation/MenuRes.class
+com/google/android/gms/maps/UiSettings.class
 android/support/v7/view/ActionMode$Callback.class
 placesafe/placesafe/registro$1.class
 android/support/annotation/AnyThread.class

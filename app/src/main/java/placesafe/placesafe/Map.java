@@ -39,6 +39,11 @@ public class Map extends Activity implements GoogleMap.OnMarkerClickListener, On
         }
         map.setMyLocationEnabled(true);
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(torreon, 13));
+        map.getUiSettings().setZoomControlsEnabled(true);
+        map.getUiSettings().setCompassEnabled(true);
+        map.getUiSettings().setZoomGesturesEnabled(true);
+        map.getUiSettings().setTiltGesturesEnabled(true);
+        map.getUiSettings().setRotateGesturesEnabled(true);
         makePoint(map, torreon, "Torreón", "Ya me fastidio");
     }
 
