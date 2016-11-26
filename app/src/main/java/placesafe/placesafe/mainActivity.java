@@ -116,28 +116,5 @@ public class mainActivity extends Activity {
 
     }
 
-=======
-    }
-
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == PLACE_PICKER_REQUEST) {
-            if (resultCode == RESULT_OK) {
-                Place place = PlacePicker.getPlace(this,data);
-                String address = String.format("Place: %s", place.getAddress());
-                getPlaces.setText(address);
-            }
-        }
-    }
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
-
->>>>>>> dc2d8262ce9d59ed028e9cc5bec8a371aead8707
 
 }

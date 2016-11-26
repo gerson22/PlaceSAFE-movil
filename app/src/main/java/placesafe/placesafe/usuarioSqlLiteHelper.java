@@ -10,7 +10,7 @@ public class usuarioSqlLiteHelper extends SQLiteOpenHelper {
     //base de datos
     private static usuarioSqlLiteHelper database;
     //*************Creamos la estructura de la tabla donde guardaremos los daotos del usuarios ***//////
-    private String sqlCreate = "Create table usuariios(" +
+    private String sqlCreate = "Create table usuarios(" +
                                 "id integer primary key autoincrement,"+
                                 "telefono integer unique not null,"+
                                 "text nickname not null);";
