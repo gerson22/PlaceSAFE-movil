@@ -172,6 +172,10 @@
         "source": "C:\\xampp\\htdocs\\Escuela\\PlaceSAFE-movil\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\select_dialog_singlechoice_material.xml"
     },
     {
+        "merged": "C:\\xampp\\htdocs\\Escuela\\PlaceSAFE-movil\\app\\build\\intermediates\\res\\merged\\debug\\layout\\map.xml",
+        "source": "C:\\xampp\\htdocs\\Escuela\\PlaceSAFE-movil\\app\\src\\main\\res\\layout\\map.xml"
+    },
+    {
         "merged": "C:\\xampp\\htdocs\\Escuela\\PlaceSAFE-movil\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
         "source": "C:\\xampp\\htdocs\\Escuela\\PlaceSAFE-movil\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
     },
