@@ -24,10 +24,13 @@ public class welcome extends Activity {
                 @Override
                 public void onClick(View v) {
                     Cursor micursor =  db.rawQuery("select * from usuarios",null);
-                    if(micursor.moveToNext()){
+                    if(micursor.moveToNext()){// si el usuario ya se a registrado en la aplicacoón lo mandamos a la pagina del mapa
+                        //String sqlCreate = "Create table usuarios(id integer primary key AUTOINCREMENT,telefono integer unique not null,nombre text not null);";
+                        //db.execSQL("drop table if exists usuarios");
+                        //db.execSQL(sqlCreate);
                         final Intent miintent = new Intent(getApplicationContext(),mainActivity.class);
                         startActivity(miintent);
-                    }else {
+                    }else {// si no se ha registrado lo mandamos a la vista d registro
                         final Intent miintent = new Intent(getApplicationContext(), registro.class);
                         startActivity(miintent);
                     }

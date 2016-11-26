@@ -28,14 +28,20 @@ public class registro extends Activity {
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String numero   =txtNumero.getText().toString();
-                String nickname =txtNickName.getText().toString();
-                String sqlCreate = "Create table usuarios(id integer primary key AUTOINCREMENT,telefono integer unique not null,nombre text not null);";
-                //databse.execSQL("drop table if exists");
-                //databse.execSQL(sqlCreate);
-                databse.execSQL("INSERT INTO usuarios values(null,'"+numero+"','"+nickname+"')");
-
-
+                if(!txtNickName.getText().equals("") && !txtNumero.getText().equals("")){
+                    if(txtNumero.getText().length()==10){
+                        String numero   =txtNumero.getText().toString();
+                        String nickname =txtNickName.getText().toString();
+                        //String sqlCreate = "Create table usuarios(id integer primary key AUTOINCREMENT,telefono integer unique not null,nombre text not null);";
+                        //databse.execSQL("drop table if exists");
+                        //databse.execSQL(sqlCreate);
+                        databse.execSQL("INSERT INTO usuarios values(null,'"+numero+"','"+nickname+"')");
+                    }else{
+                       Toast.makeText(getApplicationContext(),"Debes ingresar diez digitos en el campo de telefono",Toast.LENGTH_LONG).show();
+                    }
+                }else{
+                    Toast.makeText(getApplicationContext(),"No puedes dejar campos vacios",Toast.LENGTH_LONG).show();
+                }
             }
         });
 
