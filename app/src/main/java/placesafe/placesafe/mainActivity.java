@@ -10,10 +10,12 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +36,30 @@ public class mainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Codigo para las tabs de la vista de view_lugar
+        Resources res = getResources();
+
+        TabHost tabs = (TabHost)findViewById(android.R.id.tabhost);
+        tabs.setup();
+
+        TabHost.TabSpec spec = tabs.newTabSpec("comentarios");
+        spec.setContent(R.id.comentarios);
+        spec.setIndicator("Opiniones", res.getDrawable(android.R.drawable.ic_dialog_dialer));
+        tabs.addTab(spec);
+
+        spec = tabs.newTabSpec("comentar");
+        spec.setContent(R.id.comentar);
+        spec.setIndicator("Opinar", res.getDrawable(android.R.drawable.ic_dialog_dialer));
+        tabs.addTab(spec);
+
+        spec = tabs.newTabSpec("reaccionar");
+        spec.setContent(R.id.reaccionar);
+        spec.setIndicator("Reaccionar", res.getDrawable(android.R.drawable.ic_menu_edit));
+        tabs.addTab(spec);
+
+        tabs.setCurrentTab(0);
+        /* --------------------------------------------------------------------------------------- */
 
         getPlaces = (TextView) findViewById(R.id.placePick);
         final Activity act = this;
