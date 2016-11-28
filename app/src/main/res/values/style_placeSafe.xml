@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="placeStyleHeader">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:background">#009688</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">#ffab40</item>
+    </style>
+    <style name="placeStyleText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">#fff</item>
+    </style>
+</resources>
