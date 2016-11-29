@@ -88,19 +88,21 @@ public class RequestVolley {
         requestQueue.add(stringRequest);
     }
 
-    public void requestImage(String imageHttp,ImageView img){
+    public Bitmap requestImage(String imageHttp){
         URL imageUrl = null;
         Bitmap loadedImage;
         try {
             imageUrl = new URL(imageHttp);
             HttpURLConnection conn = (HttpURLConnection) imageUrl.openConnection();
+            conn.setDoInput(true);
             conn.connect();
             loadedImage = BitmapFactory.decodeStream(conn.getInputStream());
-            img.setImageBitmap(loadedImage);
+            return loadedImage;
         } catch (IOException e) {
             Toast.makeText(context, "Error cargando la imagen: "+e.getMessage(), Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
+        return null;
     }
 
 
