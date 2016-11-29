@@ -1,10 +1,9 @@
 package placesafe.placesafe;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-/**
- * Created by roger on 25/11/2016.
- */
+
 
 public class usuarioSqlLiteHelper extends SQLiteOpenHelper {
     //base de datos
@@ -38,5 +37,16 @@ public class usuarioSqlLiteHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS usuarios");
         //Se crea la nueva versión de la tabla
         db.execSQL(sqlCreate);
+    }
+
+    public String getUserLog(Context ctxt){// recibe como parametro el contexto de donde se llama a llamar esta función
+        usuarioSqlLiteHelper usdbh = usuarioSqlLiteHelper.getInstance(ctxt,"DBUsuarios", null, 1);
+        final SQLiteDatabase db = usdbh.getWritableDatabase();
+        Cursor micursor =  db.rawQuery("select * from usuarios", null);
+        String userlog="";
+        if(micursor.moveToNext()){//si esta logeado
+            userlog = micursor.getString(1);//obtenemos la columno 2(1) que es donde se encuentra el username
+        }
+        return userlog;
     }
 }
