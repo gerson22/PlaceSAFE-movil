@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#009688"
+        android:padding="10dp"
+        android:id="@+id/linearLayout"
+        android:weightSum="1">
+
+        <!-- Aquí pondremos el nombre del lugar -->
+        <TextView
+            style="@style/placeStyleHeader"
+            android:text="Nombre del lugar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:textSize="25dp" />
+
+        <!-- Boton para regresar a la vista donde esta el mapa -->
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="end"
+            android:src="@drawable/volver"
+            android:scaleType="fitCenter"
+            android:background="#009688"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/linearLayout"
+        android:id="@+id/linearLayout2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Aquí se pondrá la imagen del lugar -->
+            <ImageView
+                android:id="@+id/imagePlace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/park"
+                android:scaleType="fitStart"/>
+
+        </LinearLayout>
+
+        <!-- Contenedor de las tabs -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginTop="-100dp">
+
+            <TabHost android:id="@android:id/tabhost"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TabWidget android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@android:id/tabs" />
+
+                    <FrameLayout android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@android:id/tabcontent">
+
+                        <!-- Contenedor de tab de comentarios -->
+                        <LinearLayout android:id="@+id/comentarios"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" >
+
+                            <!-- Diseño del comentario -->
+                            <LinearLayout
+                                android:id="@+id/opinion"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="20dp"
+                                android:padding="10dp">
+
+                                <ImageView
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:src="@drawable/iconcoment"
+                                    android:padding="5dp"/>
+
+                                <TextView
+                                    android:id="@+id/user"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Roger26"
+                                    android:textSize="20sp"
+                                    android:layout_marginTop="7dp"
+                                    android:textColor="#ffab40"/>
+
+                                <TextView
+                                    android:id="@+id/date"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="80dp"
+                                    android:text="26-nov-16"
+                                    android:textColor="#000"
+                                    android:textSize="20sp"
+                                    android:layout_marginTop="7dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingLeft="80dp"
+                                android:layout_marginTop="-50dp">
+
+                                <TextView
+                                    android:id="@+id/opinions"
+                                    android:textColor="#000"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Es un lugar muy lindo."
+                                    android:textSize="22sp"
+                                    android:layout_marginTop="7dp" />
+
+
+
+                            </LinearLayout>
+                            <View
+                                android:layout_width="300dp"
+                                android:layout_height="2dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="15dp"
+                                android:background="#009688"/>
+                            <!-- / Diseño del comentario -->
+
+                            <!-- Lista donde se vacian los comentarios -->
+                            <ListView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:id="@+id/opinionesList">
+
+
+
+                            </ListView>
+                        </LinearLayout>
+                        <!-- / Contenedor de tab de comentarios -->
+
+                        <!-- Contenedor de tab donde se comentará -->
+                        <LinearLayout android:id="@+id/comentar"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="20dp"
+                            android:padding="20dp">
+
+                            <TextView android:id="@+id/textView2"
+                                android:text="Opinar sobre el lugar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#ffab40"
+                                android:textSize="30sp"/>
+
+                            <EditText
+                                android:layout_marginTop="40dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:id="@+id/set_comment"/>
+
+                            <Button
+                                android:id="@+id/send_comment"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal"
+                                android:layout_centerVertical="true"
+                                android:text="Enviar opinión"
+                                android:textSize="15sp"
+                                android:padding="15dp"
+                                android:background="#ffab40"
+                                android:textColor="#fff"
+                                android:layout_marginTop="20dp"/>
+
+                        </LinearLayout>
+                        <!-- / Contenedor de tab donde se comentará -->
+
+                        <!-- Contenedor de tab de las reacciones -->
+                        <LinearLayout android:id="@+id/reaccionar"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" >
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="10dp"
+                                android:padding="20dp">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <ImageButton
+                                        android:layout_width="70dp"
+                                        android:layout_height="70dp"
+                                        android:src="@drawable/happy"
+                                        android:scaleType="fitCenter"
+                                        android:padding="5dp"/>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:textAlignment="center"
+                                        android:textColor="#000"
+                                        android:text="Feliz"/>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <ImageButton
+                                        android:layout_width="70dp"
+                                        android:layout_height="70dp"
+                                        android:src="@drawable/happy"
+                                        android:scaleType="fitCenter"
+                                        android:padding="5dp"/>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:textAlignment="center"
+                                        android:textColor="#000"
+                                        android:text="Feliz"/>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+                        <!-- / Contenedor de tab de las reacciones -->
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+            </TabHost>
+
+        </LinearLayout>
+        <!-- / Contenedor de las tabs -->
+
+    </LinearLayout>
+
+</RelativeLayout>
