@@ -30,7 +30,7 @@ public class welcome extends Activity {
             mhandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    final Intent miintent = new Intent(getApplicationContext(), mainActivity.class);
+                    final Intent miintent = new Intent(getApplicationContext(), Map.class);
                     startActivity(miintent);
                 }
             },5000);// 5 de espera para ejecutar la funcion

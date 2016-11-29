@@ -25,7 +25,7 @@ import java.util.Map;
  class RequestVolley {
     private static RequestVolley _rv = null;
     private Context context;
-    private final String URI = "http://api.curiosity.com.mx";
+    private final String URI = "http://placesafe.curiosity.com.mx";
 
     private HashMap<String, Integer> methods = new HashMap<>();
     private RequestVolley(Context context){
