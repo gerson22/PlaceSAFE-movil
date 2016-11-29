@@ -44,50 +44,7 @@ public class mainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*Resources res = getResources();
 
-        TabHost tabs = (TabHost)findViewById(android.R.id.tabhost);
-        tabs.setup();
-
-        TabHost.TabSpec spec = tabs.newTabSpec("comentarios");
-        spec.setContent(R.id.comentarios);
-        spec.setIndicator("Opiniones", res.getDrawable(android.R.drawable.ic_dialog_dialer));
-        tabs.addTab(spec);
-
-        spec = tabs.newTabSpec("comentar");
-        spec.setContent(R.id.comentar);
-        spec.setIndicator("Opinar", res.getDrawable(android.R.drawable.ic_dialog_dialer));
-        tabs.addTab(spec);
-
-        spec = tabs.newTabSpec("reaccionar");
-        spec.setContent(R.id.reaccionar);
-        spec.setIndicator("Reaccionar", res.getDrawable(android.R.drawable.ic_menu_edit));
-        tabs.addTab(spec);
-
-        tabs.setCurrentTab(0);*/
-
-        /*getPlaces = (TextView) findViewById(R.id.placePick);
-        final Activity act = this;
-        try {
-            pruebaGETVolley();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        getPlaces.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
-                Intent intent;
-                try {
-                    intent = builder.build(act);
-                    startActivityForResult(intent, PLACE_PICKER_REQUEST);
-                } catch (GooglePlayServicesRepairableException e) {
-                    e.printStackTrace();
-                } catch (GooglePlayServicesNotAvailableException e) {
-                    e.printStackTrace();
-                }
-            }
-        });*/
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
