@@ -138,7 +138,6 @@ android/support/v4/view/ViewPropertyAnimatorListenerAdapter.class
 android/support/design/widget/Snackbar$5.class
 android/support/annotation/AnyRes.class
 android/support/v4/view/ViewCompat$BaseViewCompatImpl.class
-com/google/gson/annotations/JsonAdapter.class
 android/support/design/widget/Snackbar$Callback$DismissEvent.class
 android/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase.class
 android/support/design/R$styleable.class
