@@ -89,61 +89,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent" >
 
-                            <!-- Diseño del comentario -->
-                            <LinearLayout
-                                android:id="@+id/opinion"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:layout_marginTop="20dp"
-                                android:padding="10dp">
 
-                                <ImageView
-                                    android:layout_width="70dp"
-                                    android:layout_height="70dp"
-                                    android:src="@drawable/iconcoment"
-                                    android:padding="5dp"/>
-
-                                <TextView
-                                    android:id="@+id/user"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Roger26"
-                                    android:textSize="20sp"
-                                    android:layout_marginTop="7dp"
-                                    android:textColor="#ffab40"/>
-
-                                <TextView
-                                    android:id="@+id/date"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="80dp"
-                                    android:text="26-nov-16"
-                                    android:textColor="#000"
-                                    android:textSize="20sp"
-                                    android:layout_marginTop="7dp" />
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:paddingLeft="80dp"
-                                android:layout_marginTop="-50dp">
-
-                                <TextView
-                                    android:id="@+id/opinions"
-                                    android:textColor="#000"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Es un lugar muy lindo."
-                                    android:textSize="22sp"
-                                    android:layout_marginTop="7dp" />
-
-
-
-                            </LinearLayout>
                             <View
                                 android:layout_width="300dp"
                                 android:layout_height="2dp"
@@ -153,14 +99,14 @@
                             <!-- / Diseño del comentario -->
 
                             <!-- Lista donde se vacian los comentarios -->
-                            <ListView
+                            <android.support.v7.widget.RecyclerView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:id="@+id/opinionesList">
 
 
 
-                            </ListView>
+                            </android.support.v7.widget.RecyclerView>
                         </LinearLayout>
                         <!-- / Contenedor de tab de comentarios -->
 
