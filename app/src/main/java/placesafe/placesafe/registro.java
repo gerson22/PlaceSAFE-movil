@@ -35,27 +35,31 @@ public class registro extends Activity {
                 public void onClick(View v) {
                     if(!txtNickName.getText().toString().equals("") && !txtNumero.getText().toString().equals("")){
                         if(txtNumero.getText().length()==10){
-                            String numero   =txtNumero.getText().toString();
-                            String nickname =txtNickName.getText().toString();
+                            final String numero   =txtNumero.getText().toString();
+                            final String nickname =txtNickName.getText().toString();
                             RequestVolley request = RequestVolley.getInstance(getApplicationContext());
-                            HashMap<String,String> datos = new HashMap<>();
+                            final HashMap<String,String> datos = new HashMap<>();
                             datos.put("lada",numero.substring(0,3));
                             datos.put("telefono",numero);
                             datos.put("nickname",nickname);
-                            request.requestString("POST","/sendData", new Response.Listener<String>() {
+                            btnOk.setEnabled(false);
+                            btnOk.setText("Registrando...");
+                            request.requestString("POST", "/sendData", new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String o) {
-                                    if(o.equals("OK")){
-                                        Intent inte = new Intent(getApplicationContext(),Map.class);
-                                        Toast.makeText(getApplicationContext(),"El usuario se ha registrado exitosamente",Toast.LENGTH_LONG).show();
+                                    btnOk.setEnabled(true);
+                                    btnOk.setText("CONFIRMAR");
+                                    if (o.equals("OK")) {
+                                        Intent inte = new Intent(getApplicationContext(), Map.class);
+                                        Toast.makeText(getApplicationContext(), "El usuario se ha registrado exitosamente", Toast.LENGTH_LONG).show();
                                         startActivity(inte);
-                                        //databse.execSQL("INSERT INTO usuarios values(null,'"+numero+"','"+nickname+"')");
-                                    }else{
-                                        Toast.makeText(getApplicationContext(),o,Toast.LENGTH_LONG).show();
+                                        databse.execSQL("INSERT INTO usuarios values(null,'" + numero + "','" + nickname + "')");
+                                    } else {
+                                        Toast.makeText(getApplicationContext(), o, Toast.LENGTH_LONG).show();
                                         System.out.print(o);
                                     }
                                 }
-                            },datos);
+                            }, datos);
                             //databse.execSQL("INSERT INTO usuarios values(null,'"+numero+"','"+nickname+"')");
                         }else{
                             Toast.makeText(getApplicationContext(),"Debes a ingresar diez digitos en el campo de telefono",Toast.LENGTH_LONG).show();
