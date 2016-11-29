@@ -43,7 +43,9 @@
         <TextView
             style="@style/placeStyleText"
             android:text="Porque en cualquier lugar, se puede encontrar un momento especial"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <ImageView
             android:layout_width="wrap_content"
