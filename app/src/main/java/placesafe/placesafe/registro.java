@@ -26,40 +26,40 @@ public class registro extends Activity {
         setContentView(R.layout.view_confirmacion);
         txtNumero   =  (EditText)findViewById(R.id.numero);
         txtNickName =  (EditText)findViewById(R.id.nickname);
-        btnOk       =  (Button)findViewById(R.id.btnOk);
+        btnOk       =  (Button)findViewById(R.id.btnOK);
         usuarioSqlLiteHelper dbh = usuarioSqlLiteHelper.getInstance(this, "DBUsuarios", null, 1);
         final SQLiteDatabase databse = dbh.getWritableDatabase();
-        btnOk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(!txtNickName.getText().toString().equals("") && !txtNumero.getText().toString().equals("")){
-                    if(txtNumero.getText().length()==10){
-                        String numero   =txtNumero.getText().toString();
-                        String nickname =txtNickName.getText().toString();
-                        //String sqlCreate = "Create table usuarios(id integer primary key AUTOINCREMENT,telefono integer unique not null,nombre text not null);";
-                        //databse.execSQL("drop table if exists");
-                        //databse.execSQL(sqlCreate);
-                        RequestVolley request = RequestVolley.getInstance(getApplicationContext());
-                        HashMap<String,String> datos = new HashMap<>();
-                        datos.put("lada",numero.substring(0,3));
-                        datos.put("telefono",numero);
-                        datos.put("nickname",nickname);
-                        request.requestString("POST","/sendData", new Response.Listener() {
-                            @Override
-                            public void onResponse(Object o) {
-                                Toast.makeText(getApplicationContext(),o.toString(),Toast.LENGTH_LONG).show();
-                                System.out.print(o);
-                            }
-                        },datos);
-                        //databse.execSQL("INSERT INTO usuarios values(null,'"+numero+"','"+nickname+"')");
+        if(btnOk!=null){
+            btnOk.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(!txtNickName.getText().toString().equals("") && !txtNumero.getText().toString().equals("")){
+                        if(txtNumero.getText().length()==10){
+                            String numero   =txtNumero.getText().toString();
+                            String nickname =txtNickName.getText().toString();
+                            RequestVolley request = RequestVolley.getInstance(getApplicationContext());
+                            HashMap<String,String> datos = new HashMap<>();
+                            datos.put("lada",numero.substring(0,3));
+                            datos.put("telefono",numero);
+                            datos.put("nickname",nickname);
+                            request.requestString("POST","/sendData", new Response.Listener() {
+                                @Override
+                                public void onResponse(Object o) {
+                                    Toast.makeText(getApplicationContext(),o.toString(),Toast.LENGTH_LONG).show();
+                                    System.out.print(o);
+                                }
+                            },datos);
+                            //databse.execSQL("INSERT INTO usuarios values(null,'"+numero+"','"+nickname+"')");
+                        }else{
+                            Toast.makeText(getApplicationContext(),"Debes a ingresar diez digitos en el campo de telefono",Toast.LENGTH_LONG).show();
+                        }
                     }else{
-                       Toast.makeText(getApplicationContext(),"Debes a ingresar diez digitos en el campo de telefono",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"No puedes dejar campos vacios",Toast.LENGTH_LONG).show();
                     }
-                }else{
-                    Toast.makeText(getApplicationContext(),"No puedes dejar campos vacios",Toast.LENGTH_LONG).show();
                 }
-            }
-        });
+            });
+        }
+
 
     }
 }
