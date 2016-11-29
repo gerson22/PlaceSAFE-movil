@@ -30,15 +30,15 @@ public class welcome extends Activity {
                     final Intent miintent = new Intent(getApplicationContext(), mainActivity.class);
                     startActivity(miintent);
                 }
-            },15000);// 15 de espera para ejecutar la funcion
+            },5000);// 5 de espera para ejecutar la funcion
         }else {// si no se ha registrado lo mandamos a la vista d registro
             mhandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    final Intent miintent = new Intent(getApplicationContext(), registro.class);
+                    final Intent miintent = new Intent(getApplicationContext(), Map.class);
                     startActivity(miintent);
                 }
-            }, 15000);// 15 de espera para ejecutar la funcion
+            }, 5000);// 5 de espera para ejecutar la funcion
 
         }
     }
