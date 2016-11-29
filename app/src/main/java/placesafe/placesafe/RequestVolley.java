@@ -22,15 +22,12 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by Gerson on 25/11/16.
- */
-public class RequestVolley {
+ class RequestVolley {
     private static RequestVolley _rv = null;
     private Context context;
     private final String URI = "http://placesafe.curiosity.com.mx/";
 
-    private HashMap<String, Integer> methods = new HashMap<String, Integer>();
+    private HashMap<String, Integer> methods = new HashMap<>();
     private RequestVolley(Context context){
         this.context = context;
         initMethods();
@@ -56,7 +53,7 @@ public class RequestVolley {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(context, error.toString(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, error.getLocalizedMessage(), Toast.LENGTH_LONG).show();
                     }
                 }){
             @Override
@@ -69,7 +66,7 @@ public class RequestVolley {
         requestQueue.add(stringRequest);
     }
 
-    public void requestString(String method,String path, Response.Listener listener, final HashMap<String,String> params){
+    public void requestString(String method,String path, Response.Listener<String> listener, final HashMap<String,String> params){
         StringRequest stringRequest = new StringRequest(methods.get(method),URI + path ,
                 listener,
                 new Response.ErrorListener() {
@@ -89,7 +86,7 @@ public class RequestVolley {
     }
 
     public void requestImage(String imageHttp,ImageView img){
-        URL imageUrl = null;
+        URL imageUrl;
         Bitmap loadedImage;
         try {
             imageUrl = new URL(imageHttp);
