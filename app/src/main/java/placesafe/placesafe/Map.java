@@ -2,6 +2,7 @@ package placesafe.placesafe;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -69,6 +70,12 @@ public class Map extends Activity implements GoogleMap.OnMarkerClickListener, On
 
     @Override
     public boolean onMarkerClick(Marker marker) {
+        Intent intent = new Intent(getApplicationContext(),place.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("lat",String.valueOf(marker.getPosition().latitude));
+        bundle.putString("lng",String.valueOf(marker.getPosition().longitude));
+        intent.putExtras(bundle);
+        startActivity(intent);
         Toast.makeText(this, "Lat: " + marker.getPosition().latitude + ", Long: " + marker.getPosition().longitude, Toast.LENGTH_LONG).show();
         return false;
     }
