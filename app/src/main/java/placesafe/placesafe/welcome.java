@@ -22,6 +22,9 @@ public class welcome extends Activity {
         usuarioSqlLiteHelper usdbh = usuarioSqlLiteHelper.getInstance(this, "DBUsuarios", null, 1);
         final SQLiteDatabase db = usdbh.getWritableDatabase();
         Cursor micursor =  db.rawQuery("select * from usuarios",null);
+        //String sqlCreate = "Create table usuarios(id integer primary key AUTOINCREMENT,telefono integer unique not null,nombre text not null);";
+        //db.execSQL("drop table if exists usuarios");
+        //db.execSQL(sqlCreate);
         mhandler = new Handler();
         if(micursor.moveToNext()){// si el usuario ya se a registrado en la aplicaco�n lo mandamos a la pagina del mapa
             mhandler.postDelayed(new Runnable() {
@@ -35,7 +38,7 @@ public class welcome extends Activity {
             mhandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    final Intent miintent = new Intent(getApplicationContext(), Map.class);
+                    final Intent miintent = new Intent(getApplicationContext(), registro.class);
                     startActivity(miintent);
                 }
             }, 5000);// 5 de espera para ejecutar la funcion
