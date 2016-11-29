@@ -53,7 +53,7 @@ public class registro extends Activity {
                         },datos);
                         //databse.execSQL("INSERT INTO usuarios values(null,'"+numero+"','"+nickname+"')");
                     }else{
-                       Toast.makeText(getApplicationContext(),"Debes ingresar diez digitos en el campo de telefono",Toast.LENGTH_LONG).show();
+                       Toast.makeText(getApplicationContext(),"Debes a ingresar diez digitos en el campo de telefono",Toast.LENGTH_LONG).show();
                     }
                 }else{
                     Toast.makeText(getApplicationContext(),"No puedes dejar campos vacios",Toast.LENGTH_LONG).show();
