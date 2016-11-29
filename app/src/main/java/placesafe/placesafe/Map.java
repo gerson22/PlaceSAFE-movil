@@ -21,14 +21,14 @@ import com.google.android.gms.maps.model.MarkerOptions;
  * Created by Wihar on 26/11/2016.
  */
 
-public class Map extends Activity implements GoogleMap.OnMarkerClickListener, OnMapReadyCallback {
+public class Map extends Activity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
 
     GoogleMap mapp;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.map);
+        setContentView(R.layout.view_mapacompleto);
 
         MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.mapFrag);
         mapFragment.getMapAsync(this);
@@ -44,13 +44,6 @@ public class Map extends Activity implements GoogleMap.OnMarkerClickListener, On
         map.getUiSettings().setTiltGesturesEnabled(true);
         map.getUiSettings().setRotateGesturesEnabled(true);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             map.setMyLocationEnabled(true);
         }
         else{
@@ -65,18 +58,16 @@ public class Map extends Activity implements GoogleMap.OnMarkerClickListener, On
                 .position(pos)
                 .title(tit)
                 .snippet(snip));
-        map.setOnMarkerClickListener(this);
+        map.setOnInfoWindowClickListener(this);
     }
 
     @Override
-    public boolean onMarkerClick(Marker marker) {
-        Intent intent = new Intent(getApplicationContext(),place.class);
+    public void onInfoWindowClick(Marker marker) {
+        Intent intent = new Intent(getApplicationContext(), place.class);
         Bundle bundle = new Bundle();
         bundle.putString("lat",String.valueOf(marker.getPosition().latitude));
         bundle.putString("lng",String.valueOf(marker.getPosition().longitude));
         intent.putExtras(bundle);
         startActivity(intent);
-        Toast.makeText(this, "Lat: " + marker.getPosition().latitude + ", Long: " + marker.getPosition().longitude, Toast.LENGTH_LONG).show();
-        return false;
     }
 }
