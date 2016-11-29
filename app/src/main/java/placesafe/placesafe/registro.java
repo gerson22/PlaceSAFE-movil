@@ -42,11 +42,18 @@ public class registro extends Activity {
                             datos.put("lada",numero.substring(0,3));
                             datos.put("telefono",numero);
                             datos.put("nickname",nickname);
-                            request.requestString("POST","/sendData", new Response.Listener() {
+                            request.requestString("POST","/sendData", new Response.Listener<String>() {
                                 @Override
-                                public void onResponse(Object o) {
-                                    Toast.makeText(getApplicationContext(),o.toString(),Toast.LENGTH_LONG).show();
-                                    System.out.print(o);
+                                public void onResponse(String o) {
+                                    if(o.equals("OK")){
+                                        Intent inte = new Intent(getApplicationContext(),Map.class);
+                                        Toast.makeText(getApplicationContext(),"El usuario se ha registrado exitosamente",Toast.LENGTH_LONG).show();
+                                        startActivity(inte);
+                                        //databse.execSQL("INSERT INTO usuarios values(null,'"+numero+"','"+nickname+"')");
+                                    }else{
+                                        Toast.makeText(getApplicationContext(),o,Toast.LENGTH_LONG).show();
+                                        System.out.print(o);
+                                    }
                                 }
                             },datos);
                             //databse.execSQL("INSERT INTO usuarios values(null,'"+numero+"','"+nickname+"')");

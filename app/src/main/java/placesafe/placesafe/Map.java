@@ -63,13 +63,14 @@ public class Map extends Activity implements OnMapReadyCallback, GoogleMap.OnInf
         req.requestString("GET", "/getPoints", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                JSONObject obj;
                 try {
-                    obj = new JSONObject(response);
-                    for (int i = 0; i < obj.length(); i++){
-//                        LatLng place = new LatLng(obj.latitud, -103.4236984);
-                    }
+                    JSONObject obj = new JSONObject(response);
+                    Toast.makeText(Map.this, obj.getString("id"), Toast.LENGTH_SHORT).show();
+//                    for (int i = 0; i < response.length(); i++){
+////                        LatLng place = new LatLng(obj.latitud, -103.4236984);
+//                    }
                 } catch (JSONException e) {
+                    Toast.makeText(Map.this, "No paso", Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
                 }
             }
