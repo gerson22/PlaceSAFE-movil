@@ -81,6 +81,7 @@ public class place extends Activity {
         data.put("lat",bundleRecived.getString("lat"));
         data.put("lng", bundleRecived.getString("lng"));
         req.requestString("POST", "/opinions", new Response.Listener<String>() {
+
             @Override
             public void onResponse(String responser) {
 
