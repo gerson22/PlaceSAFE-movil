@@ -64,6 +64,7 @@ public class Map extends Activity implements OnMapReadyCallback, GoogleMap.OnInf
         req.requestString("GET", "/getPoints", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                Toast.makeText(Map.this, response, Toast.LENGTH_SHORT).show();
                 try {
                     JSONArray obj = new JSONArray(response);
                     for (int i = 0; i < obj.length(); i++){
