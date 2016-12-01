@@ -69,10 +69,44 @@ public class place extends Activity {
     }
 
     public void  fillOpinions(){
-        OpinionController.fillOpinions(getApplication(), this.getCurrentFocus(), app);
+        RequestVolley req = RequestVolley.getInstance(getApplicationContext());
+
+        req.requestString("POST", "/opinions", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String responser) {
+
+                try {
+                    List<Opinion> opinions = new ArrayList<>();
+                    RecyclerView rv = (RecyclerView) findViewById(R.id.opinionesList);
+                    LinearLayoutManager lym = new LinearLayoutManager(app);
+                    rv.setLayoutManager(lym);
+
+
+                    JSONArray response = new JSONArray(responser);
+                    for (int i = 0; i < response.length(); i++) {
+                        JSONObject jresponse = response.getJSONObject(i);
+                        String nickname = jresponse.getString("nickname");
+                        String opinionText = jresponse.getString("opinionText");
+                        opinions.add(new Opinion(nickname, opinionText));
+                    }
+
+                    AdapterOpinions adapterOpinions = new AdapterOpinions(opinions);
+                    rv.setAdapter(adapterOpinions);
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     public void saveOpinion(){
+        HashMap<String,String> data = new HashMap<>();
+        Intent intentRecived = getIntent();
+        Bundle bundleRecived = intentRecived.getExtras();
+        data.put("lat",bundleRecived.getString("lat"));
+        data.put("lng", bundleRecived.getString("lat"));
         OpinionController.saveOpinion(getApplication(), this.getCurrentFocus());
     }
 
