@@ -128,7 +128,7 @@ public class place extends Activity {
                         JSONObject jresponse = response.getJSONObject(i);
                         String name = jresponse.getString("name");
                         String image = jresponse.getString("image");
-                        reactions.add(new Reaction(name, uri+image));
+                        reactions.add(new Reaction(name, uri+image,getIntent().getExtras()));
                     }
 
                     AdapterReaction adapterReaction = new AdapterReaction(reactions);

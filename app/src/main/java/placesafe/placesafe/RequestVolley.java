@@ -219,7 +219,6 @@ public class RequestVolley {
 
 
         mImageLoader = SingletonVolley.getInstance(context).getImageLoader();
-        Toast.makeText(context,IMAGE_URL,Toast.LENGTH_SHORT).show();
         mNetworkImageView.setImageUrl(IMAGE_URL, mImageLoader);
     }
 
