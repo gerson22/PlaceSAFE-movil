@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Response;
+import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.NetworkImageView;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
@@ -47,6 +48,7 @@ public class place extends Activity {
 
         fillOpinions();
         fillReactions();
+        fillImagePlace();
         TextView title = (TextView) findViewById(R.id.titlePlace);
         title.setText(getIntent().getExtras().getString("titlePlace"));
         btnBack = (ImageButton) findViewById(R.id.back);
@@ -69,7 +71,7 @@ public class place extends Activity {
 
         RequestVolley request = RequestVolley.getInstance(this);
         NetworkImageView networkImageView = (NetworkImageView) findViewById(R.id.imageRequest);
-        request.requestImage("https://lh3.googleusercontent.com/fPZtta7U9eWIQoi-6cxgz3toIHEWopWGnaIrHyJ--fzidvDV3lPDX2g2Aldi-5YreL8=w300",networkImageView);
+        request.requestImage("https://lh3.googleusercontent.com/fPZtta7U9eWIQoi-6cxgz3toIHEWopWGnaIrHyJ--fzidvDV3lPDX2g2Aldi-5YreL8=w300", networkImageView);
         createTabs();
 
     }
@@ -90,8 +92,6 @@ public class place extends Activity {
                     RecyclerView rv = (RecyclerView) findViewById(R.id.opinionesList);
                     LinearLayoutManager lym = new LinearLayoutManager(app);
                     rv.setLayoutManager(lym);
-
-
                     JSONArray response = new JSONArray(responser);
                     for (int i = 0; i < response.length(); i++) {
                         JSONObject jresponse = response.getJSONObject(i);
@@ -109,6 +109,26 @@ public class place extends Activity {
                 }
             }
         }, data);
+    }
+
+    public void fillImagePlace(){
+        RequestVolley req = RequestVolley.getInstance(getApplicationContext());
+        HashMap<String,String> data = new HashMap<>();
+        Intent intentRecived = getIntent();
+        Bundle bundleRecived = intentRecived.getExtras();
+        data.put("lat",bundleRecived.getString("lat"));
+        data.put("lng", bundleRecived.getString("lng"));
+        req.requestString("GET", "/getImagePlace", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String responser) {
+                    NetworkImageView imageRequest = (NetworkImageView)findViewById(R.id.imagePlace);
+
+                    RequestVolley request = RequestVolley.getInstance(getApplicationContext());
+                    request.requestImage("http://placesafe.curiosity.com.mx/images/places/"+responser, imageRequest);
+
+
+            }
+        },data);
     }
 
     public void  fillReactions(){
