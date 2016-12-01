@@ -12,7 +12,9 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -191,19 +193,16 @@ public class RequestVolley {
     }
 
 
-    public void requestImage(String imageHttp,ImageView img){
-        URL imageUrl = null;
-        Bitmap loadedImage;
-        try {
-            imageUrl = new URL(imageHttp);
-            HttpURLConnection conn = (HttpURLConnection) imageUrl.openConnection();
-            conn.connect();
-            loadedImage = BitmapFactory.decodeStream(conn.getInputStream());
-            img.setImageBitmap(loadedImage);
-        } catch (IOException e) {
-            Toast.makeText(context, "Error cargando la imagen: "+e.getMessage(), Toast.LENGTH_LONG).show();
-            e.printStackTrace();
-        }
+    public void requestImage(String IMAGE_URL,NetworkImageView mNetworkImageView){
+        ImageLoader mImageLoader;
+
+
+// Get the ImageLoader through your singleton class.
+        mImageLoader = SingletonVolley.getInstance(context).getImageLoader();
+
+// Set the URL of the image that should be loaded into this view, and
+// specify the ImageLoader that will be used to make the request.
+        mNetworkImageView.setImageUrl(IMAGE_URL, mImageLoader);
     }
 
 

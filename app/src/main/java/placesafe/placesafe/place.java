@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.NetworkImageView;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.location.places.ui.PlacePicker;
@@ -64,6 +65,9 @@ public class place extends Activity {
             }
         });
 
+        RequestVolley request = RequestVolley.getInstance(this);
+        NetworkImageView networkImageView = (NetworkImageView) findViewById(R.id.imageRequest);
+        request.requestImage("https://lh3.googleusercontent.com/fPZtta7U9eWIQoi-6cxgz3toIHEWopWGnaIrHyJ--fzidvDV3lPDX2g2Aldi-5YreL8=w300",networkImageView);
         createTabs();
 
     }
