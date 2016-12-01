@@ -41,9 +41,10 @@ public class registro extends Activity {
                             final HashMap<String,String> datos = new HashMap<>();
                             datos.put("lada",numero.substring(0,3));
                             datos.put("telefono",numero);
-                            datos.put("nickname",nickname);
+                            datos.put("nickname", nickname);
                             btnOk.setEnabled(false);
                             btnOk.setText("Registrando...");
+                            btnOk.setEnabled(true);
                             request.requestString("POST", "/sendData", new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String o) {
@@ -55,11 +56,12 @@ public class registro extends Activity {
                                         startActivity(inte);
                                         databse.execSQL("INSERT INTO usuarios values(null,'" + numero + "','" + nickname + "')");
                                     } else {
-                                        Toast.makeText(getApplicationContext(), o, Toast.LENGTH_LONG).show();
+                                        Toast.makeText(getApplicationContext(),o, Toast.LENGTH_LONG).show();
                                         System.out.print(o);
                                     }
                                 }
                             }, datos);
+
                             //databse.execSQL("INSERT INTO usuarios values(null,'"+numero+"','"+nickname+"')");
                         }else{
                             Toast.makeText(getApplicationContext(),"Debes a ingresar diez digitos en el campo de telefono",Toast.LENGTH_LONG).show();

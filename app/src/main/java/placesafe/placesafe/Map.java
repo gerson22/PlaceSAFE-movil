@@ -18,6 +18,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -63,21 +64,25 @@ public class Map extends Activity implements OnMapReadyCallback, GoogleMap.OnInf
         req.requestString("GET", "/getPoints", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                Toast.makeText(Map.this, response, Toast.LENGTH_SHORT).show();
                 try {
-                    JSONObject obj = new JSONObject(response);
-                    Toast.makeText(Map.this, obj.getString("id"), Toast.LENGTH_SHORT).show();
-//                    for (int i = 0; i < response.length(); i++){
-////                        LatLng place = new LatLng(obj.latitud, -103.4236984);
-//                    }
+                    JSONArray obj = new JSONArray(response);
+                    for (int i = 0; i < obj.length(); i++){
+                        String lat = obj.getJSONObject(i).getString("latitude");
+                        String lng = obj.getJSONObject(i).getString("longitud");
+                        String title = obj.getJSONObject(i).getString("direccion");
+                        LatLng place = new LatLng(Double.parseDouble(lat),Double.parseDouble(lng));
+                        makePoint(mapp,place,title,"Detalles");
+                    }
                 } catch (JSONException e) {
-                    Toast.makeText(Map.this, "No paso", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Map.this, "No fue posible mostrar los lugares recomendados.", Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
                 }
             }
         });
 
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(torreon, 13));
-        makePoint(map, torreon, "Torreón", "Ya me fastidio");
+        makePoint(map, torreon, "Torreón", "Detalles");
     }
 
     public void makePoint(GoogleMap map, LatLng pos, String tit, String snip) {
