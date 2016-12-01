@@ -58,29 +58,35 @@
 
         </LinearLayout>
         <LinearLayout
-            android:layout_width="375dp"
+            android:layout_width="match_parent"
             android:layout_height="87dp"
-            android:layout_marginTop="-50dp"
+            android:layout_marginTop="-100dp"
             android:orientation="horizontal">
 
 
             <android.support.v7.widget.RecyclerView
                 android:layout_width="wrap_content"
-                android:layout_height="75dp"
+                android:layout_height="85dp"
                 android:scrollbars="horizontal"
                 android:scrollbarStyle="outsideInset"
                 android:id="@+id/iconReactions">
 
             </android.support.v7.widget.RecyclerView>
 
-
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="#009688"/>
         <!-- Contenedor de las tabs -->
         <LinearLayout
             android:orientation="vertical"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:layout_marginTop="-100dp">
+            android:layout_marginTop="20dp">
 
             <TabHost android:id="@android:id/tabhost"
                 android:layout_width="match_parent"
@@ -93,7 +99,9 @@
 
                     <TabWidget android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@android:id/tabs" />
+                        android:id="@android:id/tabs"
+                        android:layout_marginTop="-15dp"
+                        />
 
                     <FrameLayout android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -132,18 +140,18 @@
                             android:orientation="vertical"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginTop="20dp"
-                            android:padding="20dp">
+                            android:layout_marginTop="10dp"
+                            android:padding="10dp">
 
                             <TextView android:id="@+id/textView2"
                                 android:text="@string/opinionAbout"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textColor="#ffab40"
-                                android:textSize="30sp"/>
+                                android:textSize="20sp"/>
 
                             <EditText
-                                android:layout_marginTop="40dp"
+                                android:layout_marginTop="20dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="text"
@@ -151,16 +159,16 @@
 
                             <Button
                                 android:id="@+id/send_comment"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center_horizontal"
-                                android:layout_centerVertical="true"
+                                android:layout_gravity="end"
                                 android:text="@string/sendOpinion"
                                 android:textSize="15sp"
-                                android:padding="15dp"
+                                android:padding="5dp"
                                 android:background="#ffab40"
                                 android:textColor="#fff"
-                                android:layout_marginTop="20dp"/>
+                                android:layout_marginTop="10dp"/>
 
                         </LinearLayout>
                         <!-- / Contenedor de tab donde se comentará -->
