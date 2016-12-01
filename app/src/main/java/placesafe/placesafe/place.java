@@ -119,7 +119,7 @@ public class place extends Activity {
                 try {
                     List<Reaction> reactions = new ArrayList<>();
                     RecyclerView rv = (RecyclerView) findViewById(R.id.iconReactions);
-                    LinearLayoutManager lym = new LinearLayoutManager(app);
+                    LinearLayoutManager lym = (new LinearLayoutManager(app, LinearLayoutManager.HORIZONTAL, false));
                     rv.setLayoutManager(lym);
 
                     String uri = "http://placesafe.curiosity.com.mx/images/reactions/";
