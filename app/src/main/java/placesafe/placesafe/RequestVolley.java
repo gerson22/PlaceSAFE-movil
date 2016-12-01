@@ -75,10 +75,6 @@ public class RequestVolley {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
 
-        stringRequest.setRetryPolicy(new DefaultRetryPolicy(500000,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        requestQueue.add(stringRequest);
     }
 
     public void requestString(String method,String path, Response.Listener listener, final HashMap<String,String> params){
@@ -98,11 +94,6 @@ public class RequestVolley {
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
-
-        stringRequest.setRetryPolicy(new DefaultRetryPolicy(500000,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        requestQueue.add(stringRequest);
     }
     public void requestString(String method,String path, Response.Listener listener,Response.ErrorListener error){
         StringRequest stringRequest = new StringRequest(methods.get(method),URI + path ,
@@ -116,10 +107,6 @@ public class RequestVolley {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
 
-        stringRequest.setRetryPolicy(new DefaultRetryPolicy(500000,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        requestQueue.add(stringRequest);
     }
 
     public void requestString(String method,String path, Response.Listener listener,Response.ErrorListener errorListener, final HashMap<String,String> params){
@@ -135,10 +122,6 @@ public class RequestVolley {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
 
-        stringRequest.setRetryPolicy(new DefaultRetryPolicy(500000,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        requestQueue.add(stringRequest);
     }
 
     public void requestArray(String method,String path, Response.Listener listener, final HashMap<String,String> params){
