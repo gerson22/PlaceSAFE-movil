@@ -37,28 +37,9 @@ public class mainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getPlaces = (TextView) findViewById(R.id.placePick);
-        final Activity act = this;
-        try {
-            pruebaGETVolley();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        getPlaces.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
-                Intent intent;
-                try {
-                    intent = builder.build(act);
-                    startActivityForResult(intent, PLACE_PICKER_REQUEST);
-                } catch (GooglePlayServicesRepairableException e) {
-                    e.printStackTrace();
-                } catch (GooglePlayServicesNotAvailableException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+
+
+
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
