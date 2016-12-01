@@ -57,7 +57,21 @@
                 android:scaleType="fitStart"/>
 
         </LinearLayout>
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/iconReactions">
+
+            </android.support.v7.widget.RecyclerView>
+
+
+        </HorizontalScrollView>
         <!-- Contenedor de las tabs -->
         <LinearLayout
             android:orientation="vertical"
@@ -172,6 +186,25 @@
                                         android:src="@drawable/happy"
                                         android:scaleType="fitCenter"
                                         android:padding="5dp"/>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:textAlignment="center"
+                                        android:textColor="#000"
+                                        android:text="Feliz"/>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <com.android.volley.toolbox.NetworkImageView
+                                        android:layout_width="70dp"
+                                        android:layout_height="70dp"
+                                        android:id="@+id/imageRequest"/>
 
                                     <TextView
                                         android:layout_width="match_parent"
