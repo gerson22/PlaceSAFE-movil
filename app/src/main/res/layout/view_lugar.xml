@@ -57,25 +57,28 @@
                 android:scaleType="fitStart"/>
 
         </LinearLayout>
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <LinearLayout
+            android:layout_width="375dp"
+            android:layout_height="87dp"
+            android:layout_marginTop="-50dp"
             android:orientation="horizontal">
 
 
             <android.support.v7.widget.RecyclerView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="75dp"
+                android:scrollbars="horizontal"
+                android:scrollbarStyle="outsideInset"
                 android:id="@+id/iconReactions">
 
             </android.support.v7.widget.RecyclerView>
 
 
-        </HorizontalScrollView>
+        </LinearLayout>
         <!-- Contenedor de las tabs -->
         <LinearLayout
             android:orientation="vertical"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:layout_marginTop="-100dp">
 
