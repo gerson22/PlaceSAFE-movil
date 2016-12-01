@@ -142,32 +142,45 @@
                             android:layout_marginTop="10dp"
                             android:padding="10dp">
 
-                            <TextView android:id="@+id/textView2"
-                                android:text="@string/opinionAbout"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="#ffab40"
-                                android:textSize="20sp"/>
-
-                            <EditText
-                                android:layout_marginTop="20dp"
+                            <ScrollView
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:inputType="text"
-                                android:id="@+id/set_comment"/>
+                                android:layout_height="match_parent">
 
-                            <Button
-                                android:id="@+id/send_comment"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="center_horizontal"
-                                android:layout_gravity="end"
-                                android:text="@string/sendOpinion"
-                                android:textSize="15sp"
-                                android:padding="5dp"
-                                android:background="#ffab40"
-                                android:textColor="#fff"
-                                android:layout_marginTop="10dp"/>
+                               <LinearLayout
+                                   android:layout_width="match_parent"
+                                   android:layout_height="match_parent"
+                                   android:orientation="vertical">
+
+                                   <TextView android:id="@+id/textView2"
+                                       android:text="@string/opinionAbout"
+                                       android:layout_width="wrap_content"
+                                       android:layout_height="wrap_content"
+                                       android:textColor="#ffab40"
+                                       android:textSize="20sp"/>
+
+                                   <EditText
+                                       android:layout_marginTop="20dp"
+                                       android:layout_width="match_parent"
+                                       android:layout_height="wrap_content"
+                                       android:inputType="text"
+                                       android:id="@+id/set_comment"/>
+
+                                   <Button
+                                       android:id="@+id/send_comment"
+                                       android:layout_width="wrap_content"
+                                       android:layout_height="wrap_content"
+                                       android:gravity="center_horizontal"
+                                       android:layout_gravity="end"
+                                       android:text="@string/sendOpinion"
+                                       android:textSize="15sp"
+                                       android:padding="5dp"
+                                       android:background="#ffab40"
+                                       android:textColor="#fff"
+                                       android:layout_marginTop="10dp"/>
+
+                               </LinearLayout>
+
+                            </ScrollView>
 
                         </LinearLayout>
                         <!-- / Contenedor de tab donde se comentará -->
@@ -185,66 +198,80 @@
                                 android:layout_marginTop="10dp"
                                 android:padding="20dp">
 
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
+                                <ScrollView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
 
-                                    <ImageButton
-                                        android:layout_width="70dp"
-                                        android:layout_height="70dp"
-                                        android:src="@drawable/happy"
-                                        android:scaleType="fitCenter"
-                                        android:padding="5dp"/>
-
-                                    <TextView
+                                    <LinearLayout
                                         android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:textAlignment="center"
-                                        android:textColor="#000"
-                                        android:text="Feliz"/>
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
 
-                                </LinearLayout>
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical">
 
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
+                                            <ImageButton
+                                                android:layout_width="70dp"
+                                                android:layout_height="70dp"
+                                                android:src="@drawable/happy"
+                                                android:scaleType="fitCenter"
+                                                android:padding="5dp"/>
 
-                                    <com.android.volley.toolbox.NetworkImageView
-                                        android:layout_width="70dp"
-                                        android:layout_height="70dp"
-                                        android:id="@+id/imageRequest"/>
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:textAlignment="center"
+                                                android:textColor="#000"
+                                                android:text="Feliz"/>
 
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:textAlignment="center"
-                                        android:textColor="#000"
-                                        android:text="Feliz"/>
+                                        </LinearLayout>
 
-                                </LinearLayout>
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical">
 
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
+                                            <com.android.volley.toolbox.NetworkImageView
+                                                android:layout_width="70dp"
+                                                android:layout_height="70dp"
+                                                android:id="@+id/imageRequest"/>
 
-                                    <ImageButton
-                                        android:layout_width="70dp"
-                                        android:layout_height="70dp"
-                                        android:src="@drawable/happy"
-                                        android:scaleType="fitCenter"
-                                        android:padding="5dp"/>
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:textAlignment="center"
+                                                android:textColor="#000"
+                                                android:text="Feliz"/>
 
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:textAlignment="center"
-                                        android:textColor="#000"
-                                        android:text="Feliz"/>
+                                        </LinearLayout>
 
-                                </LinearLayout>
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical">
+
+                                            <ImageButton
+                                                android:layout_width="70dp"
+                                                android:layout_height="70dp"
+                                                android:src="@drawable/happy"
+                                                android:scaleType="fitCenter"
+                                                android:padding="5dp"/>
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:textAlignment="center"
+                                                android:textColor="#000"
+                                                android:text="Feliz"/>
+
+                                        </LinearLayout>
+
+
+                                    </LinearLayout>
+
+                                </ScrollView>
 
                             </LinearLayout>
 
