@@ -45,7 +45,7 @@ public class usuarioSqlLiteHelper extends SQLiteOpenHelper {
         Cursor micursor =  db.rawQuery("select * from usuarios", null);
         String userlog="";
         if(micursor.moveToNext()){//si esta logeado
-            userlog = micursor.getString(1);//obtenemos la columno 2(1) que es donde se encuentra el username
+            userlog = micursor.getString(2);//obtenemos la columno 2(1) que es donde se encuentra el username
         }
         return userlog;
     }

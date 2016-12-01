@@ -21,11 +21,8 @@ import java.util.List;
  * Created by Gerson on 30/11/16.
  */
 public class OpinionController {
-    public static void saveOpinion(final Application app,View v){
+    public static void saveOpinion(final Application app,HashMap<String,String> data){
         RequestVolley req = RequestVolley.getInstance(app.getApplicationContext());
-        HashMap<String, String> data = new HashMap<>();
-        TextView opinion = (TextView) v.findViewById(R.id.set_comment);
-        data.put("opinionText", String.valueOf(opinion.getText()));
         req.requestString("POST", "/saveOpinion", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -33,10 +30,10 @@ public class OpinionController {
                 if (response.equals("OK")) {
                     Toast.makeText(app.getApplicationContext(), "Gracias por tu opinion", Toast.LENGTH_SHORT).show();
 
+                } else {
+                    Toast.makeText(app.getApplicationContext(), response, Toast.LENGTH_SHORT).show();
                 }
             }
         }, data);
-
-        opinion.setText("");
     }
 }

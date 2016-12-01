@@ -46,6 +46,7 @@ public class place extends Activity {
         setContentView(R.layout.view_lugar);
 
         fillOpinions();
+        fillReactions();
 
         btnBack = (ImageButton) findViewById(R.id.back);
         btnComment = (Button) findViewById(R.id.send_comment);
@@ -74,7 +75,11 @@ public class place extends Activity {
 
     public void  fillOpinions(){
         RequestVolley req = RequestVolley.getInstance(getApplicationContext());
-
+        HashMap<String,String> data = new HashMap<>();
+        Intent intentRecived = getIntent();
+        Bundle bundleRecived = intentRecived.getExtras();
+        data.put("lat",bundleRecived.getString("lat"));
+        data.put("lng", bundleRecived.getString("lng"));
         req.requestString("POST", "/opinions", new Response.Listener<String>() {
             @Override
             public void onResponse(String responser) {
@@ -102,6 +107,38 @@ public class place extends Activity {
                     e.printStackTrace();
                 }
             }
+        }, data);
+    }
+
+    public void  fillReactions(){
+        RequestVolley req = RequestVolley.getInstance(getApplicationContext());
+        req.requestString("GET", "/getReactions", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String responser) {
+
+                try {
+                    List<Reaction> reactions = new ArrayList<>();
+                    RecyclerView rv = (RecyclerView) findViewById(R.id.iconReactions);
+                    LinearLayoutManager lym = new LinearLayoutManager(app);
+                    rv.setLayoutManager(lym);
+
+                    String uri = "http://placesafe.curiosity.com.mx/images/reactions/";
+                    JSONArray response = new JSONArray(responser);
+                    for (int i = 0; i < response.length(); i++) {
+                        JSONObject jresponse = response.getJSONObject(i);
+                        String name = jresponse.getString("name");
+                        String image = jresponse.getString("image");
+                        reactions.add(new Reaction(name, uri+image));
+                    }
+
+                    AdapterReaction adapterReaction = new AdapterReaction(reactions);
+                    rv.setAdapter(adapterReaction);
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
         });
     }
 
@@ -109,9 +146,13 @@ public class place extends Activity {
         HashMap<String,String> data = new HashMap<>();
         Intent intentRecived = getIntent();
         Bundle bundleRecived = intentRecived.getExtras();
+        TextView opinion = (TextView) findViewById(R.id.set_comment);
+        data.put("opinionText", String.valueOf(opinion.getText()));
         data.put("lat",bundleRecived.getString("lat"));
-        data.put("lng", bundleRecived.getString("lat"));
-        OpinionController.saveOpinion(getApplication(), this.getCurrentFocus());
+        data.put("lng", bundleRecived.getString("lng"));
+        data.put("nickname",usuarioSqlLiteHelper.getInstance(getApplicationContext(),"DBUsuarios",null,1).getUserLog(this));
+        OpinionController.saveOpinion(getApplication(), data);
+        opinion.setText("");
     }
 
     public void createTabs(){

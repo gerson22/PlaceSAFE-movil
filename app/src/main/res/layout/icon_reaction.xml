@@ -4,11 +4,19 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <com.android.volley.toolbox.NetworkImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:id="@+id/imageIconReaction"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/nameReaction"
+            android:textAlignment="center"
+            android:textColor="#000"
+            android:text="Feliz"/>
     </LinearLayout>
 </RelativeLayout>

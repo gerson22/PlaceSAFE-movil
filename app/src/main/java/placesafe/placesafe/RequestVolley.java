@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -73,6 +74,11 @@ public class RequestVolley {
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
+
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(500000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        requestQueue.add(stringRequest);
     }
 
     public void requestString(String method,String path, Response.Listener listener, final HashMap<String,String> params){
@@ -92,6 +98,11 @@ public class RequestVolley {
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
+
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(500000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        requestQueue.add(stringRequest);
     }
     public void requestString(String method,String path, Response.Listener listener,Response.ErrorListener error){
         StringRequest stringRequest = new StringRequest(methods.get(method),URI + path ,
@@ -103,6 +114,11 @@ public class RequestVolley {
         };
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);
+        requestQueue.add(stringRequest);
+
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(500000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         requestQueue.add(stringRequest);
     }
 
@@ -117,6 +133,11 @@ public class RequestVolley {
         };
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);
+        requestQueue.add(stringRequest);
+
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(500000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         requestQueue.add(stringRequest);
     }
 
@@ -197,11 +218,8 @@ public class RequestVolley {
         ImageLoader mImageLoader;
 
 
-// Get the ImageLoader through your singleton class.
         mImageLoader = SingletonVolley.getInstance(context).getImageLoader();
-
-// Set the URL of the image that should be loaded into this view, and
-// specify the ImageLoader that will be used to make the request.
+        Toast.makeText(context,IMAGE_URL,Toast.LENGTH_SHORT).show();
         mNetworkImageView.setImageUrl(IMAGE_URL, mImageLoader);
     }
 
