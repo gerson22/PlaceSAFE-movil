@@ -1,6 +1,7 @@
 package placesafe.placesafe;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
@@ -16,10 +17,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Response;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.location.places.ui.PlacePicker;
+import com.google.gson.JsonArray;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -34,11 +38,13 @@ public class place extends Activity {
 
     ImageButton btnBack;
     Button btnComment;
-
+    Context app = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_lugar);
+
+        fillOpinions();
 
         btnBack = (ImageButton) findViewById(R.id.back);
         btnComment = (Button) findViewById(R.id.send_comment);
@@ -50,13 +56,27 @@ public class place extends Activity {
             }
         });
 
+
         btnComment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                comment();
+                saveOpinion();
             }
         });
 
+        createTabs();
+
+    }
+
+    public void  fillOpinions(){
+        OpinionController.fillOpinions(getApplication(), this.getCurrentFocus(), app);
+    }
+
+    public void saveOpinion(){
+        OpinionController.saveOpinion(getApplication(), this.getCurrentFocus());
+    }
+
+    public void createTabs(){
         Resources res = getResources();
 
         TabHost tabs = (TabHost)findViewById(android.R.id.tabhost);
@@ -78,44 +98,6 @@ public class place extends Activity {
         tabs.addTab(spec);
 
         tabs.setCurrentTab(0);
-
-        RecyclerView rv = (RecyclerView) findViewById(R.id.opinionesList);
-        LinearLayoutManager lym = new LinearLayoutManager(this);
-        rv.setLayoutManager(lym);
-
-        List<Opinion> opinions = new ArrayList<>();
-
-        AdapterOpinions adapterOpinions = new AdapterOpinions(fillPlaces(opinions));
-        rv.setAdapter(adapterOpinions);
-
-
-    }
-
-    public List<Opinion> fillPlaces(final List<Opinion> opinions){
-        RequestVolley req = RequestVolley.getInstance(getApplicationContext());
-        HashMap<String, String> data = new HashMap<>();
-        //final TextView opinion = (TextView) findViewById(R.id.opinionText);
-        //data.put("opinionText", String.valueOf(opinion.getText()));
-        req.requestString("POST", "/opinions", new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-
-                JSONObject obj;
-                try {
-                    obj = new JSONObject(response);
-                    Toast.makeText(place.this,response, Toast.LENGTH_LONG).show();
-                    opinions.add(new Opinion("Roger", "Esto esta de pelos"));
-                    opinions.add(new Opinion("Gerson","La verdad no es la gran cosa"));
-                    //for(int i = 0; i < obj.length(); i++){
-
-                    //}
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-
-        return opinions;
     }
 
     protected void back(){
@@ -123,22 +105,5 @@ public class place extends Activity {
         startActivity(intentMap);
     }
 
-    protected void comment(){
-        RequestVolley req = RequestVolley.getInstance(getApplicationContext());
-        HashMap<String, String> data = new HashMap<>();
-        data.put("Comment", "Nuevo Comentario");
-        req.requestString("POST", "/commentNew", new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Toast.makeText(place.this, "Hola", Toast.LENGTH_LONG).show();
-//                JSONObject obj;
-//                try {
-//                    obj = new JSONObject(response);
-//                    Toast.makeText(place.this, obj.toString(), Toast.LENGTH_LONG).show();
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-            }
-        }, data);
-    }
+
 }

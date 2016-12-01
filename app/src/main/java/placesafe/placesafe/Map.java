@@ -9,6 +9,7 @@ import android.os.SystemClock;
 import android.support.v4.app.ActivityCompat;
 import android.widget.Toast;
 
+import com.android.volley.Response;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -16,6 +17,12 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
 
 /**
  * Created by Wihar on 26/11/2016.
@@ -38,19 +45,43 @@ public class Map extends Activity implements OnMapReadyCallback, GoogleMap.OnInf
     public void onMapReady(GoogleMap map) {
         mapp = map;
         LatLng torreon = new LatLng(25.5400882, -103.4236984);
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(torreon, 13));
+
         map.getUiSettings().setZoomControlsEnabled(true);
         map.getUiSettings().setCompassEnabled(true);
         map.getUiSettings().setZoomGesturesEnabled(true);
         map.getUiSettings().setTiltGesturesEnabled(true);
         map.getUiSettings().setRotateGesturesEnabled(true);
+
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             map.setMyLocationEnabled(true);
         }
         else{
 //            Toast.makeText(this, "No supported", Toast.LENGTH_LONG).show();
         }
+
+        RequestVolley req = RequestVolley.getInstance(getApplicationContext());
+        req.requestString("GET", "/getPoints", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONArray obj = new JSONArray(response);
+                    for (int i = 0; i < obj.length(); i++){
+                        String lat = obj.getJSONObject(i).getString("latitude");
+                        String lng = obj.getJSONObject(i).getString("longitud");
+                        String title = obj.getJSONObject(i).getString("direccion");
+                        LatLng place = new LatLng(Double.parseDouble(lat),Double.parseDouble(lng));
+                        makePoint(mapp,place,title,"Detalles");
+                    }
+                } catch (JSONException e) {
+                    Toast.makeText(Map.this, "No fue posible mostrar los lugares recomendados.", Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
+                }
+            }
+        });
+
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(torreon, 13));
-        makePoint(map, torreon, "Torreón", "Ya me fastidio");
+        makePoint(map, torreon, "Torreón", "Detalles");
     }
 
     public void makePoint(GoogleMap map, LatLng pos, String tit, String snip) {

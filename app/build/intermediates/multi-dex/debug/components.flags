@@ -1,27 +1,30 @@
--injars 'C:\xampp\htdocs\Escuela\PlaceSAFE-movil\app\build\intermediates\transforms\jarMerging\debug\jars\1\1f\combined.jar'
--outjars 'C:\xampp\htdocs\Escuela\PlaceSAFE-movil\app\build\intermediates\multi-dex\debug\componentClasses.jar'
+-injars /Users/Gerson/AndroidStudioProjects/PlaceSAFE-movil/app/build/intermediates/transforms/jarMerging/debug/jars/1/1f/combined.jar
+-outjars /Users/Gerson/AndroidStudioProjects/PlaceSAFE-movil/app/build/intermediates/multi-dex/debug/componentClasses.jar
 
--libraryjars 'C:\Users\Wihar\AppData\Local\Android\Sdk\build-tools\23.0.3\lib\shrinkedAndroid.jar'
+-libraryjars /Users/Gerson/Library/Android/sdk/build-tools/23.0.3/lib/shrinkedAndroid.jar
 
 -forceprocessing
 -dontoptimize
 -dontobfuscate
 -dontusemixedcaseclassnames
 -dontpreverify
--dontnote **
--dontwarn **
--printconfiguration 'C:\xampp\htdocs\Escuela\PlaceSAFE-movil\app\build\intermediates\multi-dex\debug\components.flags'
+-dontwarn
+-printconfiguration /Users/Gerson/AndroidStudioProjects/PlaceSAFE-movil/app/build/intermediates/multi-dex/debug/components.flags
 
-
--keep class placesafe.placesafe.Map {
-    <init>();
-}
 
 -keep class placesafe.placesafe.welcome {
     <init>();
 }
 
+-keep class placesafe.placesafe.Map {
+    <init>();
+}
+
 -keep class placesafe.placesafe.registro {
+    <init>();
+}
+
+-keep class placesafe.placesafe.place {
     <init>();
 }
 
@@ -33,25 +36,11 @@
     <init>();
 }
 
--keep public class * extends android.app.Instrumentation {
-    <init>();
-}
-
--keep public class * extends android.app.Application {
-    <init>();
-    void attachBaseContext(android.content.Context);
-}
-
 -keep public class * extends android.app.backup.BackupAgent {
     <init>();
 }
 
 -keep public class * extends java.lang.annotation.Annotation {
-    <fields>;
-    <methods>;
-}
-
--keep class com.android.tools.fd.** {
     <fields>;
     <methods>;
 }
