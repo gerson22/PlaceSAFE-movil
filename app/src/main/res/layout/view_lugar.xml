@@ -244,7 +244,7 @@
                                         android:layout_height="wrap_content"
                                         android:textAlignment="center"
                                         android:textColor="#000"
-                                        android:text="Feliz"/>
+                                        android:text="feo"/>
 
                                 </LinearLayout>
 
