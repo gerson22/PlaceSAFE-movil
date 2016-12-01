@@ -61,17 +61,17 @@ public class Map extends Activity implements OnMapReadyCallback, GoogleMap.OnInf
         }
 
         RequestVolley req = RequestVolley.getInstance(getApplicationContext());
-        req.requestString("GET", "/getPoints", new Response.Listener<String>() {
+        req.requestString("GET", "/getPlaces", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
                     JSONArray obj = new JSONArray(response);
                     for (int i = 0; i < obj.length(); i++){
-                        String lat = obj.getJSONObject(i).getString("latitude");
+                        String lat = obj.getJSONObject(i).getString("latitud");
                         String lng = obj.getJSONObject(i).getString("longitud");
-                        String title = obj.getJSONObject(i).getString("direccion");
+                        String title = obj.getJSONObject(i).getString("address");
                         LatLng place = new LatLng(Double.parseDouble(lat),Double.parseDouble(lng));
-                        makePoint(mapp,place,title,"Detalles");
+                        makePoint(mapp,place,title,"Ver Detalles");
                     }
                 } catch (JSONException e) {
                     Toast.makeText(Map.this, "No fue posible mostrar los lugares recomendados.", Toast.LENGTH_SHORT).show();
@@ -79,9 +79,6 @@ public class Map extends Activity implements OnMapReadyCallback, GoogleMap.OnInf
                 }
             }
         });
-
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(torreon, 13));
-        makePoint(map, torreon, "Torreón", "Detalles");
     }
 
     public void makePoint(GoogleMap map, LatLng pos, String tit, String snip) {
