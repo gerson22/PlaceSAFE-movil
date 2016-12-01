@@ -43,42 +43,48 @@ public class Map extends Activity implements OnMapReadyCallback, GoogleMap.OnInf
 
     @Override
     public void onMapReady(GoogleMap map) {
-        mapp = map;
-        LatLng torreon = new LatLng(25.5400882, -103.4236984);
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(torreon, 13));
+        try {
+            mapp = map;
+            LatLng torreon = new LatLng(25.5400882, -103.4236984);
+            map.moveCamera(CameraUpdateFactory.newLatLngZoom(torreon, 11));
 
-        map.getUiSettings().setZoomControlsEnabled(true);
-        map.getUiSettings().setCompassEnabled(true);
-        map.getUiSettings().setZoomGesturesEnabled(true);
-        map.getUiSettings().setTiltGesturesEnabled(true);
-        map.getUiSettings().setRotateGesturesEnabled(true);
+            map.getUiSettings().setZoomControlsEnabled(true);
+            map.getUiSettings().setCompassEnabled(true);
+            map.getUiSettings().setZoomGesturesEnabled(true);
+            map.getUiSettings().setTiltGesturesEnabled(true);
+            map.getUiSettings().setRotateGesturesEnabled(true);
 
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            map.setMyLocationEnabled(true);
-        }
-        else{
-//            Toast.makeText(this, "No supported", Toast.LENGTH_LONG).show();
-        }
-
-        RequestVolley req = RequestVolley.getInstance(getApplicationContext());
-        req.requestString("GET", "/getPlaces", new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                    JSONArray obj = new JSONArray(response);
-                    for (int i = 0; i < obj.length(); i++){
-                        String lat = obj.getJSONObject(i).getString("latitud");
-                        String lng = obj.getJSONObject(i).getString("longitud");
-                        String title = obj.getJSONObject(i).getString("address");
-                        LatLng place = new LatLng(Double.parseDouble(lat),Double.parseDouble(lng));
-                        makePoint(mapp,place,title,"Ver Detalles");
-                    }
-                } catch (JSONException e) {
-                    Toast.makeText(Map.this, "No fue posible mostrar los lugares recomendados.", Toast.LENGTH_SHORT).show();
-                    e.printStackTrace();
-                }
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                map.setMyLocationEnabled(true);
             }
-        });
+            else{
+//            Toast.makeText(this, "No supported", Toast.LENGTH_LONG).show();
+            }
+
+            RequestVolley req = RequestVolley.getInstance(getApplicationContext());
+            req.requestString("GET", "/getPlaces", new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    try {
+                        JSONArray obj = new JSONArray(response);
+                        for (int i = 0; i < obj.length(); i++){
+                            String lat = obj.getJSONObject(i).getString("latitud");
+                            String lng = obj.getJSONObject(i).getString("longitud");
+                            String title = obj.getJSONObject(i).getString("address");
+                            LatLng place = new LatLng(Double.parseDouble(lat),Double.parseDouble(lng));
+                            makePoint(mapp,place,title,"Ver Detalles");
+                        }
+                    } catch (JSONException e) {
+                        Toast.makeText(Map.this, "No fue posible mostrar los lugares recomendados.", Toast.LENGTH_SHORT).show();
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }catch(Error e){
+            Intent intent = new Intent(getApplicationContext(), Map.class);
+            Toast.makeText(this, "Recargando!", Toast.LENGTH_SHORT).show();
+            startActivity(intent);
+        }
     }
 
     public void makePoint(GoogleMap map, LatLng pos, String tit, String snip) {
