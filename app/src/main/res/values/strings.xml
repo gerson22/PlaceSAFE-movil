@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">PlaceSAFE</string>
     <string name="getPlace">Places</string>
+    <string name="registrar">Confirmar</string>
+    <string name="registrando">Registrando</string>
+    <string name="sendOpinion">Opinar</string>
+    <string name="opinionAbout">Opinar sobre el lugar</string>
 </resources>
