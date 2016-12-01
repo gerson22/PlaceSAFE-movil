@@ -47,7 +47,8 @@ public class place extends Activity {
 
         fillOpinions();
         fillReactions();
-
+        TextView title = (TextView) findViewById(R.id.titlePlace);
+        title.setText(getIntent().getExtras().getString("titlePlace"));
         btnBack = (ImageButton) findViewById(R.id.back);
         btnComment = (Button) findViewById(R.id.send_comment);
 

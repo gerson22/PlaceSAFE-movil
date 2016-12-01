@@ -101,6 +101,7 @@ public class Map extends Activity implements OnMapReadyCallback, GoogleMap.OnInf
         Bundle bundle = new Bundle();
         bundle.putString("lat",String.valueOf(marker.getPosition().latitude));
         bundle.putString("lng",String.valueOf(marker.getPosition().longitude));
+        bundle.putString("titlePlace",marker.getTitle());
         intent.putExtras(bundle);
         startActivity(intent);
     }
