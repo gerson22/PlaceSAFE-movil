@@ -9,284 +9,245 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="#009688"
+        android:background="#fff"
         android:padding="10dp"
         android:id="@+id/linearLayout"
         android:weightSum="1">
 
         <!-- Aquí pondremos el nombre del lugar -->
-        <TextView
+        <!--<TextView
             style="@style/placeStyleHeader"
             android:text="Nombre del lugar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#fff"
             android:layout_weight="1"
             android:id="@+id/titlePlace"
             android:layout_gravity="center"
             android:textSize="25dp" />
 
-        <!-- Boton para regresar a la vista donde esta el mapa -->
+         Boton para regresar a la vista donde esta el mapa
         <ImageButton
             android:id="@+id/back"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="end"
             android:src="@drawable/volver"
+            android:backgroundTint="#fff"
             android:scaleType="fitCenter"
-            android:background="#009688"/>
+            android:background="#009688"/>-->
 
     </LinearLayout>
 
-    <LinearLayout
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_below="@+id/linearLayout"
-        android:id="@+id/linearLayout2">
-
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <!-- Aquí se pondrá la imagen del lugar -->
-            <com.android.volley.toolbox.NetworkImageView
-                android:id="@+id/imagePlace"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scaleType="fitStart" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="87dp"
-            android:orientation="horizontal">
-
-
-            <android.support.v7.widget.RecyclerView
-                android:layout_width="wrap_content"
-                android:layout_height="85dp"
-                android:scrollbars="horizontal"
-                android:scrollbarStyle="outsideInset"
-                android:id="@+id/iconReactions">
-
-            </android.support.v7.widget.RecyclerView>
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:background="#009688"/>
-        <!-- Contenedor de las tabs -->
-        <LinearLayout
-            android:orientation="vertical"
             android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            android:layout_marginTop="20dp">
+            android:orientation="vertical"
+            android:id="@+id/principal">
 
-            <TabHost android:id="@android:id/tabhost"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_below="@+id/linearLayout"
+                android:id="@+id/linearLayout2">
 
                 <LinearLayout
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-                    <TabWidget android:layout_width="match_parent"
+                    <!-- Aquí se pondrá la imagen del lugar -->
+                    <com.android.volley.toolbox.NetworkImageView
+                        android:id="@+id/imagePlace"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@android:id/tabs"
-                        android:layout_marginTop="-15dp"
-                        />
+                        android:scaleType="fitStart" />
 
-                    <FrameLayout android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:id="@android:id/tabcontent">
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="87dp"
+                    android:orientation="horizontal">
 
-                        <!-- Contenedor de tab de comentarios -->
-                        <LinearLayout android:id="@+id/comentarios"
+
+                    <android.support.v7.widget.RecyclerView
+                        android:layout_width="wrap_content"
+                        android:layout_height="85dp"
+                        android:scrollbars="horizontal"
+                        android:scrollbarStyle="outsideInset"
+                        android:id="@+id/iconReactions">
+
+                    </android.support.v7.widget.RecyclerView>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:background="#009688"/>
+                <!-- Contenedor de las tabs -->
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="20dp">
+
+                    <TabHost android:id="@android:id/tabhost"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
                             android:orientation="vertical"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent" >
+                            android:layout_height="match_parent">
 
-                            <!-- Diseño del comentario -->
-
-                            <View
-                                android:layout_width="300dp"
-                                android:layout_height="2dp"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="15dp"
-                                android:background="#009688"/>
-                            <!-- / Diseño del comentario -->
-
-                            <!-- Lista donde se vacian los comentarios -->
-                            <android.support.v7.widget.RecyclerView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:id="@+id/opinionesList">
-
-
-
-                            </android.support.v7.widget.RecyclerView>
-                        </LinearLayout>
-                        <!-- / Contenedor de tab de comentarios -->
-
-                        <!-- Contenedor de tab donde se comentará -->
-                        <LinearLayout android:id="@+id/comentar"
-                            android:orientation="vertical"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="10dp"
-                            android:padding="10dp">
-
-                            <ScrollView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                               <LinearLayout
-                                   android:layout_width="match_parent"
-                                   android:layout_height="match_parent"
-                                   android:orientation="vertical">
-
-                                   <TextView android:id="@+id/textView2"
-                                       android:text="@string/opinionAbout"
-                                       android:layout_width="wrap_content"
-                                       android:layout_height="wrap_content"
-                                       android:textColor="#ffab40"
-                                       android:textSize="20sp"/>
-
-                                   <EditText
-                                       android:layout_marginTop="20dp"
-                                       android:layout_width="match_parent"
-                                       android:layout_height="wrap_content"
-                                       android:inputType="text"
-                                       android:id="@+id/set_comment"/>
-
-                                   <Button
-                                       android:id="@+id/send_comment"
-                                       android:layout_width="wrap_content"
-                                       android:layout_height="wrap_content"
-                                       android:gravity="center_horizontal"
-                                       android:layout_gravity="end"
-                                       android:text="@string/sendOpinion"
-                                       android:textSize="15sp"
-                                       android:padding="5dp"
-                                       android:background="#ffab40"
-                                       android:textColor="#fff"
-                                       android:layout_marginTop="10dp"/>
-
-                               </LinearLayout>
-
-                            </ScrollView>
-
-                        </LinearLayout>
-                        <!-- / Contenedor de tab donde se comentará -->
-
-                        <!-- Contenedor de tab de las reacciones -->
-                        <LinearLayout android:id="@+id/reaccionar"
-                            android:orientation="vertical"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" >
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
+                            <TabWidget android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:layout_marginTop="10dp"
-                                android:padding="20dp">
+                                android:id="@android:id/tabs"
+                                android:layout_marginTop="-15dp"
+                                />
 
-                                <ScrollView
+                            <FrameLayout android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:id="@android:id/tabcontent">
+
+                                <!-- Contenedor de tab de comentarios -->
+                                <LinearLayout android:id="@+id/comentarios"
+                                    android:orientation="vertical"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent">
+                                    android:layout_height="match_parent" >
+
+                                    <!-- Diseño del comentario -->
+
+                                    <View
+                                        android:layout_width="300dp"
+                                        android:layout_height="2dp"
+                                        android:layout_gravity="center"
+                                        android:layout_marginTop="15dp"
+                                        android:background="#009688"/>
+                                    <!-- / Diseño del comentario -->
+
+                                    <!-- Lista donde se vacian los comentarios -->
+                                    <android.support.v7.widget.RecyclerView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:id="@+id/opinionesList">
+
+
+
+                                    </android.support.v7.widget.RecyclerView>
+                                </LinearLayout>
+                                <!-- / Contenedor de tab de comentarios -->
+
+                                <!-- Contenedor de tab donde se comentará -->
+                                <LinearLayout android:id="@+id/comentar"
+                                    android:orientation="vertical"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="10dp"
+                                    android:padding="10dp">
+
+                                    <ScrollView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:orientation="vertical">
+
+                                            <TextView android:id="@+id/textView2"
+                                                android:text="@string/opinionAbout"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:textColor="#ffab40"
+                                                android:textSize="20sp"/>
+
+                                            <EditText
+                                                android:layout_marginTop="20dp"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:inputType="text"
+                                                android:id="@+id/set_comment"/>
+
+                                            <Button
+                                                android:id="@+id/send_comment"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="center_horizontal"
+                                                android:layout_gravity="end"
+                                                android:text="@string/sendOpinion"
+                                                android:textSize="15sp"
+                                                android:padding="5dp"
+                                                android:background="#ffab40"
+                                                android:textColor="#fff"
+                                                android:layout_marginTop="10dp"/>
+
+                                        </LinearLayout>
+
+                                    </ScrollView>
+
+                                </LinearLayout>
+                                <!-- / Contenedor de tab donde se comentará -->
+
+                                <!-- Contenedor de tab de las reacciones -->
+                                <LinearLayout android:id="@+id/reaccionar"
+                                    android:orientation="vertical"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
 
                                     <LinearLayout
                                         android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:orientation="vertical">
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:layout_marginTop="10dp"
+                                        android:padding="20dp">
 
-                                        <LinearLayout
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:orientation="vertical">
 
-                                            <ImageButton
-                                                android:layout_width="70dp"
-                                                android:layout_height="70dp"
-                                                android:src="@drawable/happy"
-                                                android:scaleType="fitCenter"
-                                                android:padding="5dp"/>
-
-                                            <TextView
+                                            <LinearLayout
                                                 android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textAlignment="center"
-                                                android:textColor="#000"
-                                                android:text="Feliz"/>
+                                                android:layout_height="match_parent"
+                                                android:orientation="vertical">
 
-                                        </LinearLayout>
 
-                                        <LinearLayout
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:orientation="vertical">
+                                                <android.support.v7.widget.RecyclerView
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:id="@+id/rvReactionPlace">
 
-                                            <com.android.volley.toolbox.NetworkImageView
-                                                android:layout_width="70dp"
-                                                android:layout_height="70dp"
-                                                android:id="@+id/imageRequest"/>
 
-                                            <TextView
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textAlignment="center"
-                                                android:textColor="#000"
-                                                android:text="Feliz"/>
 
-                                        </LinearLayout>
+                                                </android.support.v7.widget.RecyclerView>
 
-                                        <LinearLayout
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:orientation="vertical">
 
-                                            <ImageButton
-                                                android:layout_width="70dp"
-                                                android:layout_height="70dp"
-                                                android:src="@drawable/happy"
-                                                android:scaleType="fitCenter"
-                                                android:padding="5dp"/>
 
-                                            <TextView
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textAlignment="center"
-                                                android:textColor="#000"
-                                                android:text="Feliz"/>
+                                            </LinearLayout>
 
-                                        </LinearLayout>
 
 
                                     </LinearLayout>
 
-                                </ScrollView>
+                                </LinearLayout>
+                                <!-- / Contenedor de tab de las reacciones -->
 
-                            </LinearLayout>
+                            </FrameLayout>
 
                         </LinearLayout>
-                        <!-- / Contenedor de tab de las reacciones -->
 
-                    </FrameLayout>
+                    </TabHost>
 
                 </LinearLayout>
+                <!-- / Contenedor de las tabs -->
 
-            </TabHost>
-
+            </LinearLayout>
         </LinearLayout>
-        <!-- / Contenedor de las tabs -->
-
-    </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
