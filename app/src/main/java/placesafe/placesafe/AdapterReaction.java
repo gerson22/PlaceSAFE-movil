@@ -50,10 +50,10 @@ public class AdapterReaction extends RecyclerView.Adapter<AdapterReaction.Reacti
                     public void onResponse(String response) {
 
                         if (response.equals("cambio")) {
-                            Toast.makeText(holder.itemView.getContext(),reactionList.get(position).getName(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(holder.itemView.getContext(),"Tu te sentiste "+reactionList.get(position).getName(), Toast.LENGTH_SHORT).show();
 
                         } else {
-                            Toast.makeText(holder.itemView.getContext(), response, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(holder.itemView.getContext(), "Tu te sentiste "+response, Toast.LENGTH_SHORT).show();
                         }
                     }
                 }, data);

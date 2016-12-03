@@ -8,10 +8,10 @@
         android:orientation="vertical">
 
         <com.android.volley.toolbox.NetworkImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:id="@+id/imageIconReaction"
-            android:layout_margin="5dp"/>
+            android:layout_margin="10dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -19,6 +19,6 @@
             android:textAlignment="center"
             android:textColor="#000"
             android:text="Feliz"
-            android:layout_marginTop="-10dp"/>
+            android:layout_marginTop="-5dp"/>
     </LinearLayout>
 </RelativeLayout>
