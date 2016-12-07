@@ -60,6 +60,7 @@ public class registro extends Activity {
                                                 Toast.makeText(getApplicationContext(), "El usuario se ha registrado exitosamente", Toast.LENGTH_LONG).show();
                                                 startActivity(inte);
                                                 databse.execSQL("INSERT INTO usuarios values(null,'" + encript + "','" + nickname + "')");
+                                                finish();
                                             } else {
                                                 Toast.makeText(getApplicationContext(),o, Toast.LENGTH_LONG).show();
                                                 System.out.print(o);

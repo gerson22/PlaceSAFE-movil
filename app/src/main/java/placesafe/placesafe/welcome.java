@@ -32,6 +32,7 @@ public class welcome extends Activity {
                 public void run() {
                     final Intent miintent = new Intent(getApplicationContext(), Map.class);
                     startActivity(miintent);
+                    finish();
                 }
             },5000);// 5 de espera para ejecutar la funcion
         }else {// si no se ha registrado lo mandamos a la vista d registro
@@ -40,6 +41,7 @@ public class welcome extends Activity {
                 public void run() {
                     final Intent miintent = new Intent(getApplicationContext(), registro.class);
                     startActivity(miintent);
+                    finish();
                 }
             }, 5000);// 5 de espera para ejecutar la funcion
 

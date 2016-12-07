@@ -31,6 +31,8 @@ import java.util.HashMap;
 public class Map extends Activity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
 
     GoogleMap mapp;
+    private static final int INTERVALO = 2000; //2 segundos para salir
+    private long tiempoPrimerClick;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -104,5 +106,15 @@ public class Map extends Activity implements OnMapReadyCallback, GoogleMap.OnInf
         bundle.putString("titlePlace",marker.getTitle());
         intent.putExtras(bundle);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed(){
+        if (tiempoPrimerClick + INTERVALO > System.currentTimeMillis()){
+            super.onBackPressed();
+        }else {
+            Toast.makeText(this, "Vuelve a presionar para salir", Toast.LENGTH_SHORT).show();
+        }
+        tiempoPrimerClick = System.currentTimeMillis();
     }
 }
